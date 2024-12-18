@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmp2dmkk1ldr5"]
+
+[ext_resource type="Script" path="res://worlds/level.gd" id="1_ony43"]
+[ext_resource type="PackedScene" uid="uid://bklmi7oyqgwj4" path="res://entities/player.tscn" id="2_nxrh0"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_48qq3"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_ony43")
+start_point_ix = 2
+finish_point_ix = 31
+time_gold = 13.0
+time_silver = 14.5
+time_copper = 16.0
+level_name = "Gentle Slopes"
+
+[node name="Geometry" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Geometry"]
+polygon = PackedVector2Array(-128, -64, -64, 64, 128, 64, 256, 64, 320, 64, 376, 72, 440, 112, 496, 160, 560, 216, 648, 256, 744, 280, 840, 272, 920, 232, 968, 200, 1040, 176, 1104, 184, 1184, 232, 1224, 280, 1272, 328, 1336, 344, 1400, 344, 1456, 320, 1536, 280, 1592, 248, 1656, 320, 1728, 392, 1904, 384, 2064, 400, 2184, 424, 2256, 408, 2336, 376, 2472, 376, 2648, 376, 2720, 288, 2808, 256, 2864, 160, 3664, -96, 3544, 1336, 416, 792, -664, 704, -672, -392, -288, -328)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry"]
+position = Vector2(320, 640)
+shape = SubResource("WorldBoundaryShape2D_48qq3")
+
+[node name="Player" parent="." instance=ExtResource("2_nxrh0")]

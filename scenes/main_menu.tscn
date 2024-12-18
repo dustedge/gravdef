@@ -1,0 +1,112 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkm8jk4tp12ij"]
+
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_fk3j6"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fk3j6")
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 88.0
+offset_right = 168.0
+offset_bottom = 264.0
+
+[node name="NameLineEdit" type="LineEdit" parent="Buttons"]
+layout_mode = 2
+placeholder_text = "Enter name..."
+max_length = 6
+context_menu_enabled = false
+caret_blink = true
+
+[node name="PlayButton" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "PLAY"
+
+[node name="OptionsButton" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "OPTIONS"
+
+[node name="ExitButton" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "EXIT"
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 16.0
+offset_right = 192.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 30
+text = "MOTOPACK"
+
+[node name="LevelSelectorMenu" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="LevelSelectorMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.317647)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelSelectorMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="LevelSelectorMenu/VBoxContainer"]
+layout_mode = 2
+text = "SELECT LEVEL"
+horizontal_alignment = 1
+
+[node name="SelectorContainer" type="HBoxContainer" parent="LevelSelectorMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="LevelSelectorMenu/VBoxContainer/SelectorContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="LevelItemList" type="ItemList" parent="LevelSelectorMenu/VBoxContainer/SelectorContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="HideLevelSelectorButton" type="Button" parent="LevelSelectorMenu"]
+layout_mode = 0
+offset_left = 592.0
+offset_top = 16.0
+offset_right = 632.0
+offset_bottom = 53.0
+text = "X"
+
+[connection signal="text_changed" from="Buttons/NameLineEdit" to="." method="_on_name_line_edit_text_changed"]
+[connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Buttons/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="Buttons/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="item_clicked" from="LevelSelectorMenu/VBoxContainer/SelectorContainer/LevelItemList" to="." method="_on_level_item_list_item_clicked"]
+[connection signal="pressed" from="LevelSelectorMenu/HideLevelSelectorButton" to="." method="_on_hide_level_selector_button_pressed"]

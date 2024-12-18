@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://066ghwpeamp4"]
+
+[ext_resource type="Script" path="res://worlds/level.gd" id="1_p35o3"]
+[ext_resource type="PackedScene" uid="uid://bklmi7oyqgwj4" path="res://entities/player.tscn" id="2_meyho"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sxepl"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_p35o3")
+start_point_ix = 1
+finish_point_ix = 17
+time_gold = 6.0
+time_silver = 7.0
+time_copper = 9.0
+level_name = "Rookie Ride"
+
+[node name="Geometry" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Geometry"]
+polygon = PackedVector2Array(-128, 64, 128, 64, 320, 64, 448, 56, 512, 32, 552, 8, 624, 8, 736, -16, 776, -40, 840, -16, 912, 32, 952, 96, 1032, 120, 1184, 120, 1184, 144, 1192, 144, 1192, 120, 1240, 120, 1408, 120, 1448, 24, 1520, 24, 1544, 0, 1856, -384, 2168, 1008, -368, 920, -968, 536, -992, -504, -368, -512, -240, -88, -192, -72, -168, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry"]
+position = Vector2(320, 640)
+shape = SubResource("WorldBoundaryShape2D_sxepl")
+
+[node name="Player" parent="." instance=ExtResource("2_meyho")]

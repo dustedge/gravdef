@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://fum73xrv6ru2"]
+
+[ext_resource type="Script" path="res://worlds/level.gd" id="1_kwqmi"]
+[ext_resource type="PackedScene" uid="uid://bklmi7oyqgwj4" path="res://entities/player.tscn" id="2_1u4cn"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ekor0"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_kwqmi")
+start_point_ix = 1
+finish_point_ix = 73
+time_gold = 36.0
+time_silver = 45.0
+time_copper = 53.0
+level_name = "Rolling Ravine"
+
+[node name="Geometry" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Geometry"]
+polygon = PackedVector2Array(-72, 64, 128, 64, 152, 136, 200, 264, 272, 376, 384, 496, 544, 608, 736, 680, 864, 712, 1016, 728, 1160, 728, 1256, 704, 1368, 672, 1392, 720, 1512, 688, 1592, 632, 1600, 720, 1616, 656, 1664, 712, 1808, 776, 1968, 824, 2128, 848, 2224, 816, 2232, 912, 2248, 856, 2344, 944, 2392, 968, 2432, 968, 2504, 968, 2616, 952, 2704, 912, 2784, 872, 2856, 832, 2872, 816, 2896, 824, 2960, 776, 3024, 728, 3056, 736, 3168, 680, 3200, 672, 3232, 688, 3280, 648, 3320, 688, 3464, 736, 3576, 744, 3632, 696, 3664, 752, 3680, 752, 3704, 792, 3792, 800, 3880, 792, 4032, 744, 4096, 800, 4128, 808, 4192, 824, 4240, 800, 4288, 1032, 4296, 864, 4368, 928, 4440, 936, 4448, 1040, 4464, 968, 4584, 1008, 4744, 968, 4824, 1016, 4896, 992, 5008, 1048, 5112, 1016, 5192, 936, 5240, 856, 5288, 848, 5304, 904, 5328, 912, 5400, 912, 5584, 912, 5712, 848, 5784, 656, 5856, 728, 5944, 480, 6008, 536, 6048, 480, 6136, 1000, 6264, 504, 6632, 152, 7312, 608, 6472, 1880, 2544, 1840, -768, 1472, -808, -208, -608, -552, -456, -416, -376, -448, -304, -280, -224, -336, -168, -160, -128, -128, -112, -48, -80, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry"]
+position = Vector2(472, 2704)
+shape = SubResource("WorldBoundaryShape2D_ekor0")
+
+[node name="Player" parent="." instance=ExtResource("2_1u4cn")]

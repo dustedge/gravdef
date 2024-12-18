@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://ndqlb7cw6oey"]
+
+[ext_resource type="Script" path="res://worlds/level.gd" id="1_x0ics"]
+[ext_resource type="PackedScene" uid="uid://bklmi7oyqgwj4" path="res://entities/player.tscn" id="2_toaex"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_v8t1u"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_x0ics")
+start_point_ix = 6
+finish_point_ix = 40
+time_gold = 13.7
+time_silver = 15.0
+time_copper = 17.0
+level_name = "Micro Peaks"
+
+[node name="Geometry" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Geometry"]
+polygon = PackedVector2Array(-944, -488, -552, -456, -328, -320, -224, -344, -168, -144, -104, 64, 160, 64, 320, 64, 440, 48, 536, 16, 640, -48, 712, -112, 832, -112, 944, -48, 1008, -8, 1096, 16, 1248, 8, 1336, -24, 1400, -64, 1456, -128, 1520, -136, 1568, -128, 1600, -64, 1688, -16, 1720, -16, 1792, -48, 1792, 8, 1816, -8, 1888, -8, 1944, -40, 2016, -48, 2096, -64, 2184, -104, 2256, -128, 2304, -112, 2352, -80, 2400, -56, 2456, -72, 2488, -96, 2504, -72, 2576, -72, 2712, -72, 2784, -224, 3600, -576, 3960, 600, 1304, 728, -1112, 624, -1248, -456)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry"]
+position = Vector2(320, 640)
+shape = SubResource("WorldBoundaryShape2D_v8t1u")
+
+[node name="Player" parent="." instance=ExtResource("2_toaex")]

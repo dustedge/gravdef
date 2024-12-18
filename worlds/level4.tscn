@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://vxnlav4u4p61"]
+
+[ext_resource type="Script" path="res://worlds/level.gd" id="1_6tyo8"]
+[ext_resource type="PackedScene" uid="uid://bklmi7oyqgwj4" path="res://entities/player.tscn" id="2_vae1y"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ywyed"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_6tyo8")
+start_point_ix = 2
+finish_point_ix = 45
+time_gold = 19.0
+time_silver = 22.0
+time_copper = 25.0
+level_name = "First Climb"
+
+[node name="Geometry" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Geometry"]
+polygon = PackedVector2Array(-72, 64, 64, 96, 192, 128, 320, 128, 400, 152, 448, 208, 520, 288, 632, 376, 728, 416, 864, 416, 976, 392, 1024, 352, 1096, 288, 1176, 200, 1264, 96, 1344, 48, 1480, 40, 1592, 64, 1720, 96, 1904, 88, 2104, 24, 2152, 88, 2208, 136, 2304, 120, 2408, 48, 2600, 0, 2776, 16, 2904, 72, 3032, 120, 3248, 192, 3440, 288, 3616, 392, 3824, 552, 4024, 720, 4096, 752, 4160, 744, 4208, 720, 4288, 728, 4424, 824, 4584, 824, 4664, 784, 4704, 752, 4752, 760, 4816, 832, 4928, 832, 5120, 832, 5272, 832, 5440, 688, 5840, 32, 6504, -24, 7168, 1152, 5320, 2072, 1304, 1960, -1336, 1008, -488, -40, -288, -208, -168, -80)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry"]
+position = Vector2(472, 2704)
+shape = SubResource("WorldBoundaryShape2D_ywyed")
+
+[node name="Player" parent="." instance=ExtResource("2_vae1y")]

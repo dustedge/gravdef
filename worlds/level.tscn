@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://h6sdoohpjnii"]
+
+[ext_resource type="Script" path="res://worlds/level.gd" id="1_t3rtt"]
+[ext_resource type="PackedScene" uid="uid://bklmi7oyqgwj4" path="res://entities/player.tscn" id="2_dtsd6"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bh6p3"]
+
+[node name="LevelExample" type="Node2D"]
+script = ExtResource("1_t3rtt")
+start_point_ix = 1
+finish_point_ix = 24
+time_gold = 9.1
+time_silver = 10.0
+time_copper = 12.0
+level_name = "Example Level"
+
+[node name="Player" parent="." instance=ExtResource("2_dtsd6")]
+position = Vector2(208, 136)
+
+[node name="Geometry" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Geometry"]
+polygon = PackedVector2Array(64, 192, 320, 192, 384, 192, 440, 200, 480, 224, 512, 272, 560, 344, 656, 400, 760, 408, 824, 400, 904, 392, 1008, 384, 1080, 368, 1120, 320, 1160, 368, 1248, 400, 1336, 424, 1400, 400, 1520, 400, 1648, 472, 1752, 552, 1880, 592, 1960, 544, 1984, 592, 2224, 576, 2496, 576, 2560, 480, 2600, 344, 3048, 1336, 2488, 1368, -168, 1416, -128, 256, -32, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry"]
+position = Vector2(1272, 1600)
+shape = SubResource("WorldBoundaryShape2D_bh6p3")
