@@ -19,9 +19,13 @@ func load_all_levels(from_path : String):
 	
 	dir.list_dir_begin()
 	var file_name = dir.get_next()
+	var ext = ".tscn"
+	
+	
 	
 	while file_name != "":
-		if file_name.ends_with(".tscn"):
+		file_name = file_name.replace(".remap", '')
+		if file_name.ends_with(ext):
 			var file_path = from_path + "/" + file_name
 			var scene = load_scene(file_path)
 			if scene:

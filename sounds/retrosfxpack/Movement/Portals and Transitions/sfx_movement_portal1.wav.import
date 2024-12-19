@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c5lh7q6r7lsph"
+path="res://.godot/imported/sfx_movement_portal1.wav-905bd0f0bf55f867abf1b0c3d5a6089e.sample"
+
+[deps]
+
+source_file="res://sounds/retrosfxpack/Movement/Portals and Transitions/sfx_movement_portal1.wav"
+dest_files=["res://.godot/imported/sfx_movement_portal1.wav-905bd0f0bf55f867abf1b0c3d5a6089e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

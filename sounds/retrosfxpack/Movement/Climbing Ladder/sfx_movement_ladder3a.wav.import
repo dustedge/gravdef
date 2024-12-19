@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://deb5jqbjjd3vr"
+path="res://.godot/imported/sfx_movement_ladder3a.wav-d4a45b2d2033934116a0c5496f5847ec.sample"
+
+[deps]
+
+source_file="res://sounds/retrosfxpack/Movement/Climbing Ladder/sfx_movement_ladder3a.wav"
+dest_files=["res://.godot/imported/sfx_movement_ladder3a.wav-d4a45b2d2033934116a0c5496f5847ec.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

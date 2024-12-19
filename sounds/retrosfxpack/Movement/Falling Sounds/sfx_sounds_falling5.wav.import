@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dooau10o1r1jk"
+path="res://.godot/imported/sfx_sounds_falling5.wav-b82ef37099ced08301103ec36581a120.sample"
+
+[deps]
+
+source_file="res://sounds/retrosfxpack/Movement/Falling Sounds/sfx_sounds_falling5.wav"
+dest_files=["res://.godot/imported/sfx_sounds_falling5.wav-b82ef37099ced08301103ec36581a120.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

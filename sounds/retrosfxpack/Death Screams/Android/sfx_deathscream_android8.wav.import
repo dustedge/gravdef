@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://qyhsact7tew1"
+path="res://.godot/imported/sfx_deathscream_android8.wav-a48f83f49b3d2c85cc4da0966320f247.sample"
+
+[deps]
+
+source_file="res://sounds/retrosfxpack/Death Screams/Android/sfx_deathscream_android8.wav"
+dest_files=["res://.godot/imported/sfx_deathscream_android8.wav-a48f83f49b3d2c85cc4da0966320f247.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bonoy35jqwjhn"
+path="res://.godot/imported/sfx_sound_neutral11.wav-75f002c0be8994ef96a6c76bb6336e40.sample"
+
+[deps]
+
+source_file="res://sounds/retrosfxpack/General Sounds/Neutral Sounds/sfx_sound_neutral11.wav"
+dest_files=["res://.godot/imported/sfx_sound_neutral11.wav-75f002c0be8994ef96a6c76bb6336e40.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

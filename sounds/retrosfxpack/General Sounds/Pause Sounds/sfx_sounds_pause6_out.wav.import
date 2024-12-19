@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b31o312mqejav"
+path="res://.godot/imported/sfx_sounds_pause6_out.wav-ef18f8325f4c150955e14adb59e938ee.sample"
+
+[deps]
+
+source_file="res://sounds/retrosfxpack/General Sounds/Pause Sounds/sfx_sounds_pause6_out.wav"
+dest_files=["res://.godot/imported/sfx_sounds_pause6_out.wav-ef18f8325f4c150955e14adb59e938ee.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

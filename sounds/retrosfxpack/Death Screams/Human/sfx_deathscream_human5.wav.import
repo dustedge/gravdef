@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cwkniwatmdjs7"
+path="res://.godot/imported/sfx_deathscream_human5.wav-ddaff6755a7f6ffaee50f2837ba96610.sample"
+
+[deps]
+
+source_file="res://sounds/retrosfxpack/Death Screams/Human/sfx_deathscream_human5.wav"
+dest_files=["res://.godot/imported/sfx_deathscream_human5.wav-ddaff6755a7f6ffaee50f2837ba96610.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

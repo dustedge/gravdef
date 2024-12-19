@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cutmyg8mfgcm5"
+path="res://.godot/imported/sfx_sounds_powerup9.wav-0a7ef06d9904ff6bad203ebf3d7cb5aa.sample"
+
+[deps]
+
+source_file="res://sounds/retrosfxpack/General Sounds/Positive Sounds/sfx_sounds_powerup9.wav"
+dest_files=["res://.godot/imported/sfx_sounds_powerup9.wav-0a7ef06d9904ff6bad203ebf3d7cb5aa.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

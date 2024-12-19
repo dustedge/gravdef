@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ca77fadkwfpk4"
+path="res://.godot/imported/sfx_exp_medium6.wav-3ce3f4a956b06061f9b21cdf4cc04979.sample"
+
+[deps]
+
+source_file="res://sounds/retrosfxpack/Explosions/Medium Length/sfx_exp_medium6.wav"
+dest_files=["res://.godot/imported/sfx_exp_medium6.wav-3ce3f4a956b06061f9b21cdf4cc04979.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

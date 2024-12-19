@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dg6rdm6ry8oeb"
+path="res://.godot/imported/sfx_movement_jump12_landing.wav-ee2236870d9d8cccd09a1e0b01961993.sample"
+
+[deps]
+
+source_file="res://sounds/retrosfxpack/Movement/Jumping and Landing/sfx_movement_jump12_landing.wav"
+dest_files=["res://.godot/imported/sfx_movement_jump12_landing.wav-ee2236870d9d8cccd09a1e0b01961993.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

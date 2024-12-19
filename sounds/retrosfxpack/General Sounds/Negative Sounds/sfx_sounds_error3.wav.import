@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d1yw5cge1qokh"
+path="res://.godot/imported/sfx_sounds_error3.wav-cd388827bd478d7a73fb513e39c8f405.sample"
+
+[deps]
+
+source_file="res://sounds/retrosfxpack/General Sounds/Negative Sounds/sfx_sounds_error3.wav"
+dest_files=["res://.godot/imported/sfx_sounds_error3.wav-cd388827bd478d7a73fb513e39c8f405.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bsiit5b3m6rd7"
+path="res://.godot/imported/sfx_weapon_singleshot8.wav-7afd9f28fc9b1404fff8e695d5bae463.sample"
+
+[deps]
+
+source_file="res://sounds/retrosfxpack/Weapons/Single Shot Sounds/sfx_weapon_singleshot8.wav"
+dest_files=["res://.godot/imported/sfx_weapon_singleshot8.wav-7afd9f28fc9b1404fff8e695d5bae463.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

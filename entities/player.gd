@@ -14,6 +14,8 @@ class_name Player
 @onready var skeleton : Skeleton2D = $Skeleton2D
 
 @onready var anim_player : AnimationPlayer = $AnimationPlayer
+@onready var engine_sfx : AudioStreamPlayer2D = $Motorcycle/EngineSound
+@onready var vehicle : RigidBody2D = $Motorcycle
 var last_played_animation := "RESET"
 
 var stiffness = 1000.0
@@ -35,6 +37,7 @@ func _ready() -> void:
 	front_spring.damping = damping
 	back_spring.damping = damping
 	
+	engine_sfx.play()
 	pass # Replace with function body.
 
 
@@ -45,6 +48,8 @@ func _process(delta: float) -> void:
 		
 	elif not is_started:
 		elapsed_time = 0.0
+	
+	engine_sfx.pitch_scale = Globals.map_range(abs(back_wheel.angular_velocity), 0, 100, 0.3, 1.2)
 	pass
 
 func _physics_process(delta: float) -> void:
@@ -72,19 +77,27 @@ func _physics_process(delta: float) -> void:
 		if not last_played_animation == "left":
 			anim_player.play("left")
 		self.apply_torque(-player_torque)
-		back_wheel.apply_torque(-wheel_torque)
-		front_wheel.apply_torque(-wheel_torque)
 		pass
 	elif Input.is_action_pressed("right"):
 		if not last_played_animation == "right":
 			anim_player.play("right")
 		self.apply_torque(player_torque)
-		back_wheel.apply_torque(wheel_torque)
-		front_wheel.apply_torque(wheel_torque)
 		pass
-		
+	
 	elif not last_played_animation == "RESET":
 		anim_player.play("RESET")
+	
+	if Input.is_action_pressed("throttle"):
+		back_wheel.apply_torque(wheel_torque)
+		front_wheel.apply_torque(wheel_torque)
+	
+	if Input.is_action_pressed("brake"):
+		back_wheel.apply_torque(-wheel_torque)
+		front_wheel.apply_torque(-wheel_torque)	
+	
+	
+		
+	
 	
 	if Input.is_action_just_pressed("die"):
 		die()
@@ -98,11 +111,15 @@ func break_vehicle():
 	front_groove.queue_free()
 	front_spring.queue_free()
 	back_spring.queue_free()
+	SoundManager.playSFXAtPosition\
+	("res://sounds/retrosfxpack/General Sounds/Impacts/sfx_sounds_impact6.wav", vehicle.global_position)
 	die()
 	pass
 
 func die():
 	if is_dead or is_finished : return
+	SoundManager.playSFXAtPosition\
+	("res://sounds/retrosfxpack/Death Screams/Human/sfx_deathscream_human10.wav", self.global_position)
 	is_dead = true
 	anim_player.active = false
 	camera.reparent($Skeleton2D/pb_pelvis)

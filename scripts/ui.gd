@@ -7,6 +7,13 @@ class_name PlayerUI
 @onready var medal_sprite : Sprite2D = $EndScreen/VBoxContainer/MedalContainer/MedalProxy/MedalSprite
 
 @onready var score_template : Label = $ScoresContainer/_ScoreTemplate
+@onready var speedometer_arrow : Sprite2D = $SpeedometerContainer/SpeedometerRoot/ArrowSprite
+@onready var speedometer_speed_label : Label = $SpeedometerContainer/SpeedometerRoot/SpeedLabel
+@onready var rpm_arrow : Sprite2D = $SpeedometerContainer/SpeedometerRoot/BodySprite/RpmRoot/RpmArrowSprite
+@onready var rpm_label : Label = $SpeedometerContainer/SpeedometerRoot/BodySprite/RpmRoot/RpmLabel
+
+var display_score_lines := 9
+var arrow_root_rotation : float
 
 enum Medal {
 	GOLD,
@@ -25,7 +32,8 @@ var medal_sprite_frames : Dictionary = {
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$EndScreen.hide()
-	
+	update_leaderboards()
+	arrow_root_rotation = speedometer_arrow.rotation_degrees
 	pass # Replace with function body.
 
 
@@ -38,7 +46,8 @@ func _process(delta: float) -> void:
 		return
 	time_label.text = get_time_str(player.elapsed_time)
 	
-	update_leaderboards()
+	update_speed(delta)
+	
 	
 func get_time_str(time : float):
 	
@@ -51,7 +60,7 @@ func get_time_str(time : float):
 func end_screen():
 	if $EndScreen.visible:
 		return
-		
+	update_leaderboards()
 	$EndScreen.show()
 	if player.is_dead:
 		finish_time_label.text = "TIME: DNF"
@@ -97,7 +106,6 @@ func _on_next_button_pressed() -> void:
 
 func update_leaderboards():
 	## fix this retarded stuff
-	
 	var scores = ScoreManager.get_level_times(LevelManager.current_level)
 	## cleanup
 	for child : Label in $ScoresContainer.get_children():
@@ -106,10 +114,37 @@ func update_leaderboards():
 			child.queue_free()
 	
 	var counter := 1
+	scores.sort_custom(func(a, b) : return a[1] < b[1])
 	for entry in scores:
-		var new_label = score_template.duplicate()
-		new_label.text = "{0}. {1}: {2}".format([counter, entry[0], get_time_str(entry[1]).trim_prefix("TIME: ")])
+		if counter >= display_score_lines:
+			break
+		var new_label : Label = score_template.duplicate()
+		
+		match counter:
+			1:
+				new_label.self_modulate = Color.GOLD
+			2:
+				new_label.self_modulate = Color.WHITE
+			3:
+				new_label.self_modulate = Color.WHITE
+			_:
+				new_label.self_modulate = Color.DARK_GRAY
+		
+		new_label.text = "{0}. {1} : {2}".format([counter, str(entry[0]).rpad(6, " "), get_time_str(entry[1]).trim_prefix("TIME: ")])
 		counter += 1 
 		$ScoresContainer.add_child(new_label)
 		new_label.show()
 	pass
+
+func update_speed(delta):
+	var ply_speed = int(player.linear_velocity.length()/5)
+	var ply_rpm = int(abs(player.back_wheel.angular_velocity))
+	
+	if player.is_dead: ply_speed = 0
+	if int(speedometer_speed_label.text) != ply_speed:
+		speedometer_speed_label.text = str(ply_speed)
+		speedometer_arrow.rotation_degrees = lerp(speedometer_arrow.rotation_degrees, Globals.map_range(ply_speed, 0, 150, -45, 235), delta * 10)
+	
+	if rpm_label.text != str(ply_rpm):
+		rpm_label.text = str(ply_rpm)
+		rpm_arrow.rotation_degrees = lerp(rpm_arrow.rotation_degrees, Globals.map_range(ply_rpm, 0, 130, -45, 235), delta * 10)

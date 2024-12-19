@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bawo2ulms7kng"
+path="res://.godot/imported/sfx_sound_vaporizing.wav-afb5ace1249d7900699b0cff3fac149c.sample"
+
+[deps]
+
+source_file="res://sounds/retrosfxpack/General Sounds/Weird Sounds/sfx_sound_vaporizing.wav"
+dest_files=["res://.godot/imported/sfx_sound_vaporizing.wav-afb5ace1249d7900699b0cff3fac149c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

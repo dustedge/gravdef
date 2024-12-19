@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://rtk2nn2b13gq"
+path="res://.godot/imported/sfx_deathscream_robot4.wav-8e8482cc89f211175980ddaf8e2f1d95.sample"
+
+[deps]
+
+source_file="res://sounds/retrosfxpack/Death Screams/Robot/sfx_deathscream_robot4.wav"
+dest_files=["res://.godot/imported/sfx_deathscream_robot4.wav-8e8482cc89f211175980ddaf8e2f1d95.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

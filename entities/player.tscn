@@ -1,11 +1,14 @@
-[gd_scene load_steps=24 format=3 uid="uid://bklmi7oyqgwj4"]
+[gd_scene load_steps=29 format=3 uid="uid://bklmi7oyqgwj4"]
 
 [ext_resource type="Texture2D" uid="uid://10ifvy451de0" path="res://sprites/player.png" id="1_oymxt"]
 [ext_resource type="Script" path="res://entities/player.gd" id="1_v0w06"]
 [ext_resource type="Texture2D" uid="uid://bn1xytss55rx2" path="res://sprites/motorcycle.png" id="2_llg6f"]
+[ext_resource type="Script" path="res://entities/motorcycle.gd" id="2_xsr6o"]
+[ext_resource type="AudioStream" uid="uid://b1dres5xvjy1m" path="res://sounds/engine.ogg" id="3_d4bxb"]
 [ext_resource type="Script" path="res://scripts/debug_ui.gd" id="3_jukl0"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="5_ppc57"]
 [ext_resource type="Texture2D" uid="uid://d4k1m3kldmvt" path="res://sprites/medals.png" id="6_7kgbx"]
+[ext_resource type="Texture2D" uid="uid://mooa7x7vjr5n" path="res://sprites/speedometer.png" id="7_v2qt3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jdfyj"]
 bounce = 0.2
@@ -284,9 +287,18 @@ _data = {
 "right": SubResource("Animation_cjrr7")
 }
 
+[sub_resource type="SystemFont" id="SystemFont_67442"]
+font_names = PackedStringArray("Consolas")
+font_weight = 700
+
 [sub_resource type="SystemFont" id="SystemFont_4anku"]
-font_names = PackedStringArray("Monospace")
+font_names = PackedStringArray("Consolas")
 font_weight = 750
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_upu0s"]
+font_names = PackedStringArray("Monospace")
+font_weight = 925
 
 [node name="Player" type="RigidBody2D"]
 collision_layer = 2
@@ -298,6 +310,7 @@ position = Vector2(15, 15)
 collision_layer = 4
 mass = 20.0
 can_sleep = false
+script = ExtResource("2_xsr6o")
 
 [node name="GrooveJointFront" type="GrooveJoint2D" parent="Motorcycle"]
 position = Vector2(29, -8)
@@ -311,6 +324,8 @@ position = Vector2(29, 20)
 collision_layer = 4
 mass = 0.8
 physics_material_override = SubResource("PhysicsMaterial_jdfyj")
+contact_monitor = true
+max_contacts_reported = 2
 
 [node name="Sprite" type="Sprite2D" parent="Motorcycle/WheelFront"]
 scale = Vector2(2, 2)
@@ -350,6 +365,8 @@ initial_offset = 28.0
 position = Vector2(-35, 20)
 collision_layer = 4
 physics_material_override = SubResource("PhysicsMaterial_jdfyj")
+contact_monitor = true
+max_contacts_reported = 2
 
 [node name="Sprite" type="Sprite2D" parent="Motorcycle/WheelBack"]
 scale = Vector2(2, 2)
@@ -368,6 +385,10 @@ length = 28.0
 rest_length = 27.0
 stiffness = 64.0
 damping = 0.5
+
+[node name="EngineSound" type="AudioStreamPlayer2D" parent="Motorcycle"]
+stream = ExtResource("3_d4bxb")
+bus = &"Engine"
 
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
 position = Vector2(-8, 0)
@@ -619,18 +640,18 @@ autoplay = "RESET"
 script = ExtResource("5_ppc57")
 
 [node name="TimeLabel" type="Label" parent="UI"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -128.0
-offset_top = -32.0
-offset_right = -10.0
-offset_bottom = -3.0
-grow_horizontal = 0
-grow_vertical = 0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -62.0
+offset_right = 62.0
+offset_bottom = 29.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = SubResource("SystemFont_67442")
 text = "TIME: 00:00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="EndScreen" type="CenterContainer" parent="UI"]
 visible = false
@@ -695,33 +716,111 @@ offset_left = 8.0
 offset_top = 8.0
 offset_right = 312.0
 offset_bottom = 40.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/font_size = 14
 text = "level name here"
 vertical_alignment = 1
 
 [node name="ScoresContainer" type="VBoxContainer" parent="UI"]
 offset_left = 8.0
-offset_top = 64.0
+offset_top = 40.0
 offset_right = 120.0
-offset_bottom = 248.0
+offset_bottom = 224.0
 
 [node name="_TitleLabel" type="Label" parent="UI/ScoresContainer"]
 layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 8
 text = "Leaderboards"
 horizontal_alignment = 1
 
 [node name="_ScoreTemplate" type="Label" parent="UI/ScoresContainer"]
 visible = false
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
 theme_override_fonts/font = SubResource("SystemFont_4anku")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 6
 text = "1. player: 01:01.01"
+
+[node name="SpeedometerContainer" type="CenterContainer" parent="UI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+offset_right = 192.0
+grow_vertical = 0
+
+[node name="SpeedometerRoot" type="Control" parent="UI/SpeedometerContainer"]
+layout_mode = 2
+
+[node name="BodySprite" type="Sprite2D" parent="UI/SpeedometerContainer/SpeedometerRoot"]
+texture = ExtResource("7_v2qt3")
+hframes = 3
+
+[node name="RpmRoot" type="Control" parent="UI/SpeedometerContainer/SpeedometerRoot/BodySprite"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -56.0
+offset_top = 8.0
+offset_right = -16.0
+offset_bottom = 48.0
+
+[node name="RpmBodySprite" type="Sprite2D" parent="UI/SpeedometerContainer/SpeedometerRoot/BodySprite/RpmRoot"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_v2qt3")
+hframes = 3
+frame = 2
+
+[node name="RpmArrowSprite" type="Sprite2D" parent="UI/SpeedometerContainer/SpeedometerRoot/BodySprite/RpmRoot"]
+rotation = -0.785397
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_v2qt3")
+hframes = 3
+frame = 1
+
+[node name="RpmLabel" type="Label" parent="UI/SpeedometerContainer/SpeedometerRoot/BodySprite/RpmRoot"]
+custom_minimum_size = Vector2(10, 0)
+offset_left = -11.0
+offset_top = 8.0
+offset_right = 12.0
+offset_bottom = 18.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_upu0s")
+theme_override_font_sizes/font_size = 7
+text = "99"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ArrowSprite" type="Sprite2D" parent="UI/SpeedometerContainer/SpeedometerRoot"]
+rotation = -0.785397
+texture = ExtResource("7_v2qt3")
+hframes = 3
+frame = 1
+
+[node name="SpeedLabel" type="Label" parent="UI/SpeedometerContainer/SpeedometerRoot"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 0
+offset_left = -11.0
+offset_top = 11.0
+offset_right = 12.0
+offset_bottom = 21.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_upu0s")
+theme_override_font_sizes/font_size = 8
+text = "99"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1.90735e-06)
 shape = SubResource("RectangleShape2D_irqhl")
 
+[connection signal="body_entered" from="Motorcycle/WheelFront" to="Motorcycle" method="_on_wheel_front_body_entered"]
+[connection signal="body_entered" from="Motorcycle/WheelBack" to="Motorcycle" method="_on_wheel_back_body_entered"]
 [connection signal="body_entered" from="Skeleton2D/pelvis/head/HeadArea" to="." method="_on_head_area_body_entered"]
 [connection signal="value_changed" from="DebugUI/VBoxContainer/StifHSlider" to="DebugUI" method="_on_stif_h_slider_value_changed"]
 [connection signal="pressed" from="UI/EndScreen/VBoxContainer/ButtonHContainer/ExitButton" to="UI" method="_on_exit_button_pressed"]

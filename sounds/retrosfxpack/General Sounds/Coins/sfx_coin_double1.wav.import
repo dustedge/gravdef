@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dwv4j3sb2gc5l"
+path="res://.godot/imported/sfx_coin_double1.wav-a63e2dbb5a55e205d04e3fd5a85755a5.sample"
+
+[deps]
+
+source_file="res://sounds/retrosfxpack/General Sounds/Coins/sfx_coin_double1.wav"
+dest_files=["res://.godot/imported/sfx_coin_double1.wav-a63e2dbb5a55e205d04e3fd5a85755a5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
