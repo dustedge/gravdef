@@ -39,8 +39,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if $LevelNameLabel.text != LevelManager.current_level:
-		$LevelNameLabel.text = LevelManager.current_level
+	if $LevelNameLabel.text != LevelManager.current_level.levelname:
+		$LevelNameLabel.text = LevelManager.current_level.levelname
 	if not is_instance_valid(player) or\
 	not is_instance_valid(time_label):
 		return

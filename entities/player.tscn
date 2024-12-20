@@ -290,6 +290,7 @@ _data = {
 [sub_resource type="SystemFont" id="SystemFont_67442"]
 font_names = PackedStringArray("Consolas")
 font_weight = 700
+subpixel_positioning = 0
 
 [sub_resource type="SystemFont" id="SystemFont_4anku"]
 font_names = PackedStringArray("Consolas")
@@ -299,8 +300,10 @@ subpixel_positioning = 0
 [sub_resource type="SystemFont" id="SystemFont_upu0s"]
 font_names = PackedStringArray("Monospace")
 font_weight = 925
+subpixel_positioning = 0
 
 [node name="Player" type="RigidBody2D"]
+z_index = 1
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_v0w06")
@@ -784,6 +787,7 @@ frame = 1
 
 [node name="RpmLabel" type="Label" parent="UI/SpeedometerContainer/SpeedometerRoot/BodySprite/RpmRoot"]
 custom_minimum_size = Vector2(10, 0)
+layout_mode = 0
 offset_left = -11.0
 offset_top = 8.0
 offset_right = 12.0

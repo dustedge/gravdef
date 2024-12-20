@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dokn1dhnc8yg0"]
+
+[ext_resource type="Script" path="res://worlds/level.gd" id="1_74m68"]
+[ext_resource type="PackedScene" uid="uid://bklmi7oyqgwj4" path="res://entities/player.tscn" id="2_1c140"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4abch"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_74m68")
+start_point_ix = 1
+finish_point_ix = 57
+time_gold = 36.5
+time_silver = 39.0
+time_copper = 45.0
+level_name = "Mummy Hills"
+id = 11
+
+[node name="Geometry" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Geometry"]
+polygon = PackedVector2Array(-104, 56, 176, 56, 384, 72, 616, 120, 768, 112, 968, 72, 1080, 24, 1168, -48, 1216, -32, 1296, 48, 1512, 248, 1776, 528, 1952, 576, 2200, 592, 2408, 512, 2736, 464, 2800, 656, 2872, 528, 3032, 856, 3040, 704, 3280, 904, 3488, 1000, 3656, 1056, 3936, 1112, 4176, 1144, 4384, 1096, 4512, 1000, 4576, 1112, 4728, 984, 4848, 1096, 4928, 1040, 5008, 1000, 5064, 1056, 5136, 1048, 5200, 1112, 5312, 1136, 5560, 1264, 5720, 1288, 5896, 1240, 6072, 1240, 6184, 1176, 6416, 1048, 6504, 1080, 6704, 976, 6816, 928, 6936, 848, 7072, 912, 7376, 752, 7688, 688, 7880, 640, 8168, 624, 8288, 672, 8400, 928, 8504, 1256, 8616, 1416, 8816, 1640, 9040, 1784, 9424, 1792, 9832, 1792, 10104, 1536, 10264, 1600, 10368, 1240, 10768, 1384, 10968, 1104, 11304, 1312, 11456, 3928, 3088, 3672, -1680, 2648, -1776, -168, -896, -800, -576, -552, -440, -376, -320, -424, -312, -248, -240, -224, -200, -112)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry"]
+position = Vector2(536, 5296)
+shape = SubResource("WorldBoundaryShape2D_4abch")
+
+[node name="Player" parent="." instance=ExtResource("2_1c140")]

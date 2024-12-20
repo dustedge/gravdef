@@ -1,18 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://ndqlb7cw6oey"]
 
-[ext_resource type="Script" path="res://worlds/level.gd" id="1_x0ics"]
-[ext_resource type="PackedScene" uid="uid://bklmi7oyqgwj4" path="res://entities/player.tscn" id="2_toaex"]
+[ext_resource type="Script" path="res://worlds/level.gd" id="1_sqct6"]
+[ext_resource type="PackedScene" uid="uid://bklmi7oyqgwj4" path="res://entities/player.tscn" id="2_ivpuw"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_v8t1u"]
 
 [node name="Level" type="Node2D"]
-script = ExtResource("1_x0ics")
+script = ExtResource("1_sqct6")
 start_point_ix = 6
 finish_point_ix = 40
 time_gold = 13.7
 time_silver = 15.0
 time_copper = 17.0
 level_name = "Micro Peaks"
+id = 3
 
 [node name="Geometry" type="StaticBody2D" parent="."]
 
@@ -23,4 +24,4 @@ polygon = PackedVector2Array(-944, -488, -552, -456, -328, -320, -224, -344, -16
 position = Vector2(320, 640)
 shape = SubResource("WorldBoundaryShape2D_v8t1u")
 
-[node name="Player" parent="." instance=ExtResource("2_toaex")]
+[node name="Player" parent="." instance=ExtResource("2_ivpuw")]

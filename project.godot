@@ -26,6 +26,7 @@ LevelManager="*res://scripts/levelmanager.gd"
 Globals="*res://scripts/globals.gd"
 ScoreManager="*res://scripts/scoremanager.gd"
 SoundManager="*res://scripts/soundmanager.gd"
+ReplayManager="*res://scripts/ReplayManager.gd"
 
 [display]
 

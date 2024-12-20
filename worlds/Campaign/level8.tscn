@@ -1,18 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://c1g2xapp0ccpo"]
 
-[ext_resource type="Script" path="res://worlds/level.gd" id="1_n77iv"]
-[ext_resource type="PackedScene" uid="uid://bklmi7oyqgwj4" path="res://entities/player.tscn" id="2_k7ulw"]
+[ext_resource type="Script" path="res://worlds/level.gd" id="1_6y1o0"]
+[ext_resource type="PackedScene" uid="uid://bklmi7oyqgwj4" path="res://entities/player.tscn" id="2_s6f2e"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_chiwq"]
 
 [node name="Level" type="Node2D"]
-script = ExtResource("1_n77iv")
+script = ExtResource("1_6y1o0")
 start_point_ix = 1
 finish_point_ix = 97
 time_gold = 35.5
 time_silver = 37.0
 time_copper = 42.0
 level_name = "Rollercoaster"
+id = 8
 
 [node name="Geometry" type="StaticBody2D" parent="."]
 
@@ -23,4 +24,4 @@ polygon = PackedVector2Array(-128, 64, 128, 64, 224, 40, 264, 0, 312, 16, 352, 4
 position = Vector2(472, 2704)
 shape = SubResource("WorldBoundaryShape2D_chiwq")
 
-[node name="Player" parent="." instance=ExtResource("2_k7ulw")]
+[node name="Player" parent="." instance=ExtResource("2_s6f2e")]

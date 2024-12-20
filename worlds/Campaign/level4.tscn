@@ -1,18 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://vxnlav4u4p61"]
 
-[ext_resource type="Script" path="res://worlds/level.gd" id="1_6tyo8"]
-[ext_resource type="PackedScene" uid="uid://bklmi7oyqgwj4" path="res://entities/player.tscn" id="2_vae1y"]
+[ext_resource type="Script" path="res://worlds/level.gd" id="1_fxv26"]
+[ext_resource type="PackedScene" uid="uid://bklmi7oyqgwj4" path="res://entities/player.tscn" id="2_y2ihx"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ywyed"]
 
 [node name="Level" type="Node2D"]
-script = ExtResource("1_6tyo8")
+script = ExtResource("1_fxv26")
 start_point_ix = 2
 finish_point_ix = 45
 time_gold = 19.0
 time_silver = 22.0
 time_copper = 25.0
 level_name = "First Climb"
+id = 4
 
 [node name="Geometry" type="StaticBody2D" parent="."]
 
@@ -23,4 +24,4 @@ polygon = PackedVector2Array(-72, 64, 64, 96, 192, 128, 320, 128, 400, 152, 448,
 position = Vector2(472, 2704)
 shape = SubResource("WorldBoundaryShape2D_ywyed")
 
-[node name="Player" parent="." instance=ExtResource("2_vae1y")]
+[node name="Player" parent="." instance=ExtResource("2_y2ihx")]

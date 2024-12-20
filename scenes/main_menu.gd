@@ -2,25 +2,24 @@ extends Control
 class_name MainMenu
 
 @onready var level_item_list : ItemList = $LevelSelectorMenu/VBoxContainer/SelectorContainer/LevelItemList
-
+@onready var levelpack_item_list : ItemList = $LevelSelectorMenu/VBoxContainer/SelectorContainer/PackItemList
 func _ready() -> void:
-	# fetch levels and populate item list
-	fill_level_list(level_item_list)
+	# fetch levelpacks and populate packlist
+	refresh_level_packs() 
 	
-func fill_level_list(item_list : ItemList):
-	var counter := 1
-	for levelname in LevelManager.levels.keys():
-		item_list.add_item(str(counter) + ". " + levelname)
-		counter += 1
+	
+func refresh_level_packs():
+	for pack in LevelManager.level_packs:
+		var item_ix = levelpack_item_list.add_item(pack.packname, pack.packicon)
+		levelpack_item_list.set_item_metadata(item_ix, pack)
 
 func _on_level_item_list_item_clicked(index: int, at_position: Vector2, mouse_button_index: int) -> void:
 	if not mouse_button_index == MOUSE_BUTTON_LEFT:
 		return
-	var lvl_name = level_item_list.get_item_text(index)
-	lvl_name = trim_number_prefix(lvl_name)
-	print("Loading level: ", lvl_name)
-	LevelManager.current_level = lvl_name
-	get_tree().change_scene_to_packed(LevelManager.levels[lvl_name])
+	var clicked_level : LevelManager.GameLevel = level_item_list.get_item_metadata(index)
+	print("Loading level: ", clicked_level.levelname)
+	LevelManager.current_level = clicked_level
+	get_tree().change_scene_to_packed(clicked_level.scene)
 
 func trim_number_prefix(string : String):
 	var regex = RegEx.new()
@@ -51,3 +50,17 @@ func _on_name_line_edit_text_changed(new_text: String) -> void:
 		Globals.player_name = new_text.to_upper()
 	else:
 		Globals.player_name = "NONAME"
+
+
+func _on_pack_item_list_item_clicked(index: int, at_position: Vector2, mouse_button_index: int) -> void:
+	# Pack selected ->
+	#	clear level list
+	#	fill level list from pack
+	var pack : LevelManager.LevelPack = levelpack_item_list.get_item_metadata(index)
+	fill_levels(pack)
+	
+func fill_levels(levelpack : LevelManager.LevelPack):
+	level_item_list.clear()
+	for level in levelpack.levels:
+		var item_ix = level_item_list.add_item(str(level.id) + ". " + level.levelname)
+		level_item_list.set_item_metadata(item_ix, level)

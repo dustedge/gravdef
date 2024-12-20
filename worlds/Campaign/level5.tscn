@@ -1,18 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://dbys3o7qt6tdb"]
 
-[ext_resource type="Script" path="res://worlds/level.gd" id="1_r2kgw"]
-[ext_resource type="PackedScene" uid="uid://bklmi7oyqgwj4" path="res://entities/player.tscn" id="2_rqtyk"]
+[ext_resource type="Script" path="res://worlds/level.gd" id="1_4fe4s"]
+[ext_resource type="PackedScene" uid="uid://bklmi7oyqgwj4" path="res://entities/player.tscn" id="2_n0psn"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_236of"]
 
 [node name="Level" type="Node2D"]
-script = ExtResource("1_r2kgw")
+script = ExtResource("1_4fe4s")
 start_point_ix = 1
 finish_point_ix = 52
 time_gold = 19.9
 time_silver = 21.0
 time_copper = 24.0
 level_name = "Hill Hop"
+id = 5
 
 [node name="Geometry" type="StaticBody2D" parent="."]
 
@@ -23,4 +24,4 @@ polygon = PackedVector2Array(-64, 72, 96, 72, 192, 64, 272, 48, 296, 40, 368, 24
 position = Vector2(472, 2704)
 shape = SubResource("WorldBoundaryShape2D_236of")
 
-[node name="Player" parent="." instance=ExtResource("2_rqtyk")]
+[node name="Player" parent="." instance=ExtResource("2_n0psn")]

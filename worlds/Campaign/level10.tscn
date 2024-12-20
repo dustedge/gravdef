@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://blxryegw8ynwv"]
+
+[ext_resource type="Script" path="res://worlds/level.gd" id="1_rv1p5"]
+[ext_resource type="PackedScene" uid="uid://bklmi7oyqgwj4" path="res://entities/player.tscn" id="2_uk5xp"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_70qqe"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_rv1p5")
+start_point_ix = 3
+finish_point_ix = 68
+level_name = "Baby Steps"
+id = 10
+
+[node name="Geometry" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Geometry"]
+polygon = PackedVector2Array(-136, 64, -64, 64, -56, 88, 96, 88, 104, 120, 256, 120, 272, 152, 392, 152, 408, 184, 544, 184, 568, 216, 688, 216, 704, 248, 720, 248, 752, 256, 816, 264, 872, 264, 960, 240, 968, 272, 984, 248, 1056, 208, 1136, 224, 1144, 248, 1296, 248, 1304, 272, 1408, 272, 1416, 296, 1480, 312, 1520, 304, 1536, 352, 1560, 384, 1584, 400, 1608, 400, 1640, 384, 1728, 400, 1808, 400, 1848, 392, 1880, 368, 1904, 368, 1928, 392, 1952, 392, 1984, 376, 2016, 368, 2056, 352, 2120, 344, 2168, 320, 2168, 360, 2184, 640, 2208, 640, 2216, 608, 2248, 328, 2264, 328, 2304, 312, 2344, 288, 2352, 304, 2408, 288, 2472, 280, 2544, 272, 2584, 248, 2624, 288, 2664, 320, 2720, 344, 2760, 352, 2800, 344, 2832, 320, 2856, 264, 2872, 272, 2880, 328, 2984, 328, 3112, 328, 3152, 264, 3168, 272, 3216, 200, 3248, 184, 3288, 112, 3384, 40, 3512, 136, 3496, 680, 1968, 768, 376, 688, -520, 512, -824, 40, -752, -328, -464, -376, -424, -288, -328, -304, -288, -168, -200, -136)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry"]
+position = Vector2(536, 5296)
+shape = SubResource("WorldBoundaryShape2D_70qqe")
+
+[node name="Player" parent="." instance=ExtResource("2_uk5xp")]

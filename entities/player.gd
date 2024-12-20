@@ -50,13 +50,15 @@ func _process(delta: float) -> void:
 		elapsed_time = 0.0
 	
 	engine_sfx.pitch_scale = Globals.map_range(abs(back_wheel.angular_velocity), 0, 100, 0.3, 1.2)
+	
 	pass
 
 func _physics_process(delta: float) -> void:
 	
 	
 	if Input.is_action_just_pressed("restart"):
-		get_tree().reload_current_scene()
+		ReplayManager.stop_recording(self, true)
+		get_tree().call_deferred("reload_current_scene")
 	
 	if is_dead or is_finished:
 		return
@@ -178,9 +180,10 @@ func call_child_recursive(node: Node2D, f: Callable):
 func update_bone(bone: Node2D):
 	if bone is PhysicalBone2D:
 		if !bone.simulate_physics:
+			pass
 			# there might be yet another bug regarding the resulting position of bone and its children after enabling simulate_physics
 			# recommended to check it in the editor and ensure the position is correct
-			print("warning: " + bone.name + " simulate_physics is not checked!")
+			#print("warning: " + bone.name + " simulate_physics is not checked!")
 		# this will undo the cpp constructor
 		
 		bone.set_deferred("freeze", true)

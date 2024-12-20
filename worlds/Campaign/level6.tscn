@@ -1,18 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://bo3ohkgbmcxio"]
 
-[ext_resource type="Script" path="res://worlds/level.gd" id="1_wyvkv"]
-[ext_resource type="PackedScene" uid="uid://bklmi7oyqgwj4" path="res://entities/player.tscn" id="2_ov3m5"]
+[ext_resource type="Script" path="res://worlds/level.gd" id="1_o0rey"]
+[ext_resource type="PackedScene" uid="uid://bklmi7oyqgwj4" path="res://entities/player.tscn" id="2_fr4gr"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kwj3n"]
 
 [node name="Level" type="Node2D"]
-script = ExtResource("1_wyvkv")
+script = ExtResource("1_o0rey")
 start_point_ix = 3
 finish_point_ix = 77
 time_gold = 28.0
 time_silver = 34.0
 time_copper = 42.0
 level_name = "Bumpy Ride"
+id = 6
 
 [node name="Geometry" type="StaticBody2D" parent="."]
 
@@ -23,4 +24,4 @@ polygon = PackedVector2Array(-128, 64, 8, 112, 72, 112, 128, 88, 176, 120, 256, 
 position = Vector2(472, 2704)
 shape = SubResource("WorldBoundaryShape2D_kwj3n")
 
-[node name="Player" parent="." instance=ExtResource("2_ov3m5")]
+[node name="Player" parent="." instance=ExtResource("2_fr4gr")]

@@ -8,6 +8,7 @@ class_name Level
 @export var time_silver: float
 @export var time_copper: float
 @export var level_name : String = "Unnamed Level"
+@export var id : int = 0
 
 var flag_scene = preload("res://entities/flag.tscn")
 @onready var geometry = $Geometry
@@ -24,12 +25,15 @@ var line_color : Color = Color.WHITE
 var start_flags : Array = []
 var finish_flags : Array = []
 
+var is_started = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
 	# on level start:
 	#	spawn flags	
-	LevelManager.current_level = self.level_name
+	#   start replay record
+
+	
 	
 	var start_point : Vector2 = poly.polygon[start_point_ix]
 	var finish_point : Vector2 = poly.polygon[finish_point_ix]
@@ -144,5 +148,13 @@ func finish():
 	pass
 
 func start():
+	if is_started: return
+	## add something like a toggle to disable recording of replays
+	ReplayManager.start_recording(player)
+	
+	## add something like a toggle to disable playback of replays
+	ReplayManager.load_level_replays(self)
+	
 	player.start_level()
+	is_started = true
 	pass

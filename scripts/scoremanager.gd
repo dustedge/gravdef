@@ -16,13 +16,18 @@ var allowed_entries_per_level := 20
 func _ready() -> void:
 	load_levels_times()
 
-func get_level_times(level_name : String) -> Array:
+func get_level_times(level : LevelManager.GameLevel) -> Array:
+	var level_name : String = get_level_name_string(level)
 	if not level_name in level_times.keys():
 		level_times[level_name] = []
 	return level_times[level_name]
 
-func add_level_time(elapsed_time : float, level_name : String = LevelManager.current_level, player_name : String = Globals.player_name):
+func get_level_name_string(level: LevelManager.GameLevel) -> String:
+	return level.owner_pack.packname + ":" + str(level.id)
+
+func add_level_time(elapsed_time : float, level : LevelManager.GameLevel = LevelManager.current_level, player_name : String = Globals.player_name):
 	var entry = []
+	var level_name = get_level_name_string(level)
 	entry.append(player_name) 
 	entry.append(elapsed_time)
 	

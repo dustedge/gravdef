@@ -50,7 +50,6 @@ theme_override_font_sizes/font_size = 30
 text = "MOTOPACK"
 
 [node name="LevelSelectorMenu" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -88,7 +87,7 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Control" type="Control" parent="LevelSelectorMenu/VBoxContainer/SelectorContainer"]
+[node name="PackItemList" type="ItemList" parent="LevelSelectorMenu/VBoxContainer/SelectorContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 
@@ -108,5 +107,6 @@ text = "X"
 [connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Buttons/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="Buttons/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="item_clicked" from="LevelSelectorMenu/VBoxContainer/SelectorContainer/PackItemList" to="." method="_on_pack_item_list_item_clicked"]
 [connection signal="item_clicked" from="LevelSelectorMenu/VBoxContainer/SelectorContainer/LevelItemList" to="." method="_on_level_item_list_item_clicked"]
 [connection signal="pressed" from="LevelSelectorMenu/HideLevelSelectorButton" to="." method="_on_hide_level_selector_button_pressed"]

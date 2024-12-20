@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cn3imyahaf4dw"]
+
+[ext_resource type="Script" path="res://worlds/level.gd" id="1_wmmjt"]
+[ext_resource type="PackedScene" uid="uid://bklmi7oyqgwj4" path="res://entities/player.tscn" id="2_mfxoj"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nc1te"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_wmmjt")
+start_point_ix = 1
+finish_point_ix = 51
+time_gold = 15.0
+time_silver = 18.0
+time_copper = 23.0
+level_name = "Death Drop"
+id = 9
+
+[node name="Geometry" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Geometry"]
+polygon = PackedVector2Array(-128, 64, 128, 72, 192, 80, 248, 104, 288, 144, 320, 208, 360, 320, 448, 520, 568, 744, 672, 936, 832, 1240, 1048, 1512, 1248, 1776, 1464, 2008, 1712, 2208, 2024, 2400, 2174.16, 2490.1, 2344, 2592, 2560, 2680, 2792, 2752, 3064, 2800, 3336, 2832, 3520, 2832, 3704, 2824, 3872, 2808, 4032, 2776, 4152, 2728, 4264, 2672, 4376, 2584, 4432, 2808, 4496, 2720, 4568, 2816, 4584, 2720, 4640, 2816, 4688, 2712, 4736, 2824, 4768, 2712, 4824, 2800, 4896, 2704, 4968, 2816, 5008, 2680, 5080, 2784, 5424, 2080, 6232, 1560, 6336, 1536, 6480, 1592, 6680, 1536, 6752, 2328, 6824, 1600, 7040, 1592, 7168, 1632, 7352, 1632, 7624, 1632, 7984, 2440, 8192, 2472, 8208, 2136, 8584, 2128, 8736, 1752, 9008, 1784, 9096, 1456, 10768, 1184, 11632, 3992, 6392, 4968, 304, 4872, -2488, 3376, -2576, -576, -1440, -1320, -1136, -1104, -1016, -1208, -624, -544, -560, -576, -432, -200, -376, -232, -304, -104, -240, -168)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry"]
+position = Vector2(536, 5296)
+shape = SubResource("WorldBoundaryShape2D_nc1te")
+
+[node name="Player" parent="." instance=ExtResource("2_mfxoj")]

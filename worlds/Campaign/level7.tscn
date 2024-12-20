@@ -1,18 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://fum73xrv6ru2"]
 
-[ext_resource type="Script" path="res://worlds/level.gd" id="1_kwqmi"]
-[ext_resource type="PackedScene" uid="uid://bklmi7oyqgwj4" path="res://entities/player.tscn" id="2_1u4cn"]
+[ext_resource type="Script" path="res://worlds/level.gd" id="1_3ce0e"]
+[ext_resource type="PackedScene" uid="uid://bklmi7oyqgwj4" path="res://entities/player.tscn" id="2_2d0xp"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ekor0"]
 
 [node name="Level" type="Node2D"]
-script = ExtResource("1_kwqmi")
+script = ExtResource("1_3ce0e")
 start_point_ix = 1
 finish_point_ix = 73
 time_gold = 36.0
 time_silver = 45.0
 time_copper = 53.0
 level_name = "Rolling Ravine"
+id = 7
 
 [node name="Geometry" type="StaticBody2D" parent="."]
 
@@ -23,4 +24,4 @@ polygon = PackedVector2Array(-72, 64, 128, 64, 152, 136, 200, 264, 272, 376, 384
 position = Vector2(472, 2704)
 shape = SubResource("WorldBoundaryShape2D_ekor0")
 
-[node name="Player" parent="." instance=ExtResource("2_1u4cn")]
+[node name="Player" parent="." instance=ExtResource("2_2d0xp")]
