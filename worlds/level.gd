@@ -9,6 +9,7 @@ class_name Level
 @export var time_copper: float
 @export var level_name : String = "Unnamed Level"
 @export var id : int = 0
+@export var difficulty : Globals.Difficulty = Globals.Difficulty.BREEZE
 
 var flag_scene = preload("res://entities/flag.tscn")
 @onready var geometry = $Geometry

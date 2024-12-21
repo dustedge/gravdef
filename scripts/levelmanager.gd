@@ -33,6 +33,7 @@ class LevelPack:
 class GameLevel:
 	var id : int = 0
 	var levelname : String = "Unnamed Level"
+	var difficulty : Globals.Difficulty = Globals.Difficulty.BREEZE
 	var owner_pack : LevelPack
 	var scene : PackedScene
 
@@ -109,6 +110,7 @@ func load_new_game_level(path : String, packname : String) -> bool:
 		new_level.levelname = level_inst.level_name
 		new_level.id = level_inst.id
 		new_level.scene = level_scene
+		new_level.difficulty = level_inst.difficulty
 		
 		for pack : LevelPack in level_packs:
 			if pack.packname == packname:

@@ -1,6 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkm8jk4tp12ij"]
+[gd_scene load_steps=16 format=3 uid="uid://bkm8jk4tp12ij"]
 
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_fk3j6"]
+[ext_resource type="Script" path="res://scenes/character_customizer_menu.gd" id="2_1qyaj"]
+[ext_resource type="Texture2D" uid="uid://pmuv5w1vpjhc" path="res://sprites/icons/ui2.png" id="2_wvk11"]
+[ext_resource type="Texture2D" uid="uid://dqh225224n8nw" path="res://sprites/icons/ui1.png" id="3_4etne"]
+[ext_resource type="Texture2D" uid="uid://b51f2ppi8g70r" path="res://sprites/character/heads.png" id="3_e72xa"]
+[ext_resource type="Texture2D" uid="uid://bn1xytss55rx2" path="res://sprites/motorcycle.png" id="3_mmqbb"]
+[ext_resource type="Texture2D" uid="uid://d4g22pau2jjro" path="res://sprites/character/forearms.png" id="4_4xxcc"]
+[ext_resource type="Texture2D" uid="uid://p5l6yb467p5e" path="res://sprites/character/upperarms.png" id="5_gme88"]
+[ext_resource type="Texture2D" uid="uid://dhtxe0biwaog6" path="res://sprites/character/feet.png" id="6_egrf4"]
+[ext_resource type="Texture2D" uid="uid://djbs1sakshaln" path="res://sprites/character/thighs.png" id="7_yyqe8"]
+[ext_resource type="Texture2D" uid="uid://cku4lp86p3vd7" path="res://sprites/character/torsos.png" id="8_jorqg"]
+[ext_resource type="Script" path="res://scripts/customize_option.gd" id="10_2qo3q"]
+
+[sub_resource type="SystemFont" id="SystemFont_ye6dj"]
+font_names = PackedStringArray("Consolas")
+font_weight = 700
+
+[sub_resource type="SystemFont" id="SystemFont_24f43"]
+font_names = PackedStringArray("Consolas")
+font_weight = 725
+
+[sub_resource type="SystemFont" id="SystemFont_x6um8"]
+font_names = PackedStringArray("Consolas")
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -50,6 +72,7 @@ theme_override_font_sizes/font_size = 30
 text = "MOTOPACK"
 
 [node name="LevelSelectorMenu" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -94,6 +117,7 @@ layout_mode = 2
 [node name="LevelItemList" type="ItemList" parent="LevelSelectorMenu/VBoxContainer/SelectorContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_ye6dj")
 
 [node name="HideLevelSelectorButton" type="Button" parent="LevelSelectorMenu"]
 layout_mode = 0
@@ -102,6 +126,431 @@ offset_top = 16.0
 offset_right = 632.0
 offset_bottom = 53.0
 text = "X"
+
+[node name="CharacterCustomizerMenu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_1qyaj")
+
+[node name="ColorRect" type="ColorRect" parent="CharacterCustomizerMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.08, 0.08, 0.08, 0.745098)
+
+[node name="CustomizeLabel" type="Label" parent="CharacterCustomizerMenu"]
+offset_left = 32.0
+offset_top = 16.0
+offset_right = 192.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 30
+text = "Customize
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CharacterCustomizerMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -96.0
+offset_right = 192.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CharacterContainer" type="CenterContainer" parent="CharacterCustomizerMenu/HBoxContainer"]
+custom_minimum_size = Vector2(210, 190)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="CharacterCustomizerMenu/HBoxContainer/CharacterContainer"]
+custom_minimum_size = Vector2(190, 190)
+layout_mode = 2
+color = Color(0.1, 0.1, 0.1, 1)
+
+[node name="Character" type="Control" parent="CharacterCustomizerMenu/HBoxContainer/CharacterContainer"]
+layout_mode = 2
+
+[node name="CharacterRoot" type="Node2D" parent="CharacterCustomizerMenu/HBoxContainer/CharacterContainer/Character"]
+position = Vector2(-7, 0)
+
+[node name="VehicleRoot" type="Node2D" parent="CharacterCustomizerMenu/HBoxContainer/CharacterContainer/Character/CharacterRoot"]
+position = Vector2(8, 8)
+
+[node name="WheelBackSprite" type="Sprite2D" parent="CharacterCustomizerMenu/HBoxContainer/CharacterContainer/Character/CharacterRoot/VehicleRoot"]
+position = Vector2(-33, 15)
+scale = Vector2(2, 2)
+texture = ExtResource("3_mmqbb")
+hframes = 2
+frame = 1
+
+[node name="WheelFrontSprite" type="Sprite2D" parent="CharacterCustomizerMenu/HBoxContainer/CharacterContainer/Character/CharacterRoot/VehicleRoot"]
+position = Vector2(30, 15)
+scale = Vector2(2, 2)
+texture = ExtResource("3_mmqbb")
+hframes = 2
+frame = 1
+
+[node name="VehicleSprite" type="Sprite2D" parent="CharacterCustomizerMenu/HBoxContainer/CharacterContainer/Character/CharacterRoot/VehicleRoot"]
+scale = Vector2(2, 2)
+texture = ExtResource("3_mmqbb")
+hframes = 2
+
+[node name="Skeleton2D" type="Skeleton2D" parent="CharacterCustomizerMenu/HBoxContainer/CharacterContainer/Character/CharacterRoot"]
+position = Vector2(-14, -8)
+
+[node name="pelvis" type="Bone2D" parent="CharacterCustomizerMenu/HBoxContainer/CharacterContainer/Character/CharacterRoot/Skeleton2D"]
+position = Vector2(-2, -3)
+rotation = -0.70856
+scale = Vector2(0.999999, 0.999999)
+rest = Transform2D(0.759299, -0.65074, 0.65074, 0.759299, -2, -3)
+editor_settings/show_bone_gizmo = false
+
+[node name="head" type="Bone2D" parent="CharacterCustomizerMenu/HBoxContainer/CharacterContainer/Character/CharacterRoot/Skeleton2D/pelvis"]
+position = Vector2(26.163, -0.707107)
+rotation = -0.445433
+rest = Transform2D(0.902424, -0.430848, 0.430848, 0.902424, 26.163, -0.707107)
+auto_calculate_length_and_angle = false
+length = 11.755
+bone_angle = 0.0
+editor_settings/show_bone_gizmo = false
+
+[node name="sprite" type="Sprite2D" parent="CharacterCustomizerMenu/HBoxContainer/CharacterContainer/Character/CharacterRoot/Skeleton2D/pelvis/head"]
+z_index = 1
+position = Vector2(6.62742, -0.526916)
+rotation = 1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("3_e72xa")
+hframes = 21
+
+[node name="upperarm" type="Bone2D" parent="CharacterCustomizerMenu/HBoxContainer/CharacterContainer/Character/CharacterRoot/Skeleton2D/pelvis"]
+z_index = 3
+position = Vector2(19.1984, 0.649514)
+rotation = 1.71379
+scale = Vector2(0.999997, 0.999997)
+rest = Transform2D(-0.142511, 0.98979, -0.98979, -0.142511, 19.1984, 0.649514)
+editor_settings/show_bone_gizmo = false
+
+[node name="forearm" type="Bone2D" parent="CharacterCustomizerMenu/HBoxContainer/CharacterContainer/Character/CharacterRoot/Skeleton2D/pelvis/upperarm"]
+position = Vector2(13, 0)
+rotation = -1.0472
+rest = Transform2D(0.5, -0.866025, 0.866025, 0.5, 13, 0)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
+editor_settings/show_bone_gizmo = false
+
+[node name="sprite" type="Sprite2D" parent="CharacterCustomizerMenu/HBoxContainer/CharacterContainer/Character/CharacterRoot/Skeleton2D/pelvis/upperarm/forearm"]
+z_index = 1
+position = Vector2(6.62742, -0.526916)
+rotation = 1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("4_4xxcc")
+flip_v = true
+hframes = 21
+
+[node name="sprite" type="Sprite2D" parent="CharacterCustomizerMenu/HBoxContainer/CharacterContainer/Character/CharacterRoot/Skeleton2D/pelvis/upperarm"]
+z_index = 2
+position = Vector2(4, -2.54292e-07)
+rotation = 1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("5_gme88")
+hframes = 21
+
+[node name="thigh" type="Bone2D" parent="CharacterCustomizerMenu/HBoxContainer/CharacterContainer/Character/CharacterRoot/Skeleton2D/pelvis"]
+z_index = 2
+position = Vector2(1.19209e-06, 4.76837e-07)
+rotation = 1.32581
+scale = Vector2(0.999997, 0.999997)
+rest = Transform2D(0.242539, 0.970139, -0.970139, 0.242539, 1.19209e-06, 4.76837e-07)
+editor_settings/show_bone_gizmo = false
+
+[node name="leg" type="Bone2D" parent="CharacterCustomizerMenu/HBoxContainer/CharacterContainer/Character/CharacterRoot/Skeleton2D/pelvis/thigh"]
+position = Vector2(16, 2.09815e-06)
+rotation = 1.17649
+scale = Vector2(0.999999, 0.999999)
+rest = Transform2D(0.384167, 0.923262, -0.923262, 0.384167, 16, 2.09815e-06)
+auto_calculate_length_and_angle = false
+length = 20.245
+bone_angle = 0.0
+editor_settings/show_bone_gizmo = false
+
+[node name="sprite" type="Sprite2D" parent="CharacterCustomizerMenu/HBoxContainer/CharacterContainer/Character/CharacterRoot/Skeleton2D/pelvis/thigh/leg"]
+position = Vector2(13.6305, -2.30182)
+rotation = -1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("6_egrf4")
+hframes = 21
+
+[node name="sprite" type="Sprite2D" parent="CharacterCustomizerMenu/HBoxContainer/CharacterContainer/Character/CharacterRoot/Skeleton2D/pelvis/thigh"]
+position = Vector2(8, -0.999999)
+rotation = 1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("7_yyqe8")
+hframes = 21
+
+[node name="sprite" type="Sprite2D" parent="CharacterCustomizerMenu/HBoxContainer/CharacterContainer/Character/CharacterRoot/Skeleton2D/pelvis"]
+position = Vector2(12.4206, -0.433624)
+rotation = 1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("8_jorqg")
+hframes = 21
+
+[node name="CustomizeOptions" type="VBoxContainer" parent="CharacterCustomizerMenu/HBoxContainer"]
+custom_minimum_size = Vector2(210, 190)
+layout_mode = 2
+alignment = 1
+
+[node name="CustomizeOptionHead" type="HBoxContainer" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions"]
+layout_mode = 2
+alignment = 1
+script = ExtResource("10_2qo3q")
+
+[node name="OptionLabel" type="Label" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions/CustomizeOptionHead"]
+layout_mode = 2
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = SubResource("SystemFont_24f43")
+text = "Head      :"
+
+[node name="SelectedLabel" type="Label" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions/CustomizeOptionHead"]
+layout_mode = 2
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = SubResource("SystemFont_x6um8")
+text = "1"
+
+[node name="ButtonPrev" type="Button" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions/CustomizeOptionHead"]
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 2
+icon = ExtResource("2_wvk11")
+icon_alignment = 1
+expand_icon = true
+
+[node name="ButtonNext" type="Button" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions/CustomizeOptionHead"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+icon = ExtResource("3_4etne")
+icon_alignment = 1
+
+[node name="CustomizeOptionUpperArms" type="HBoxContainer" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions"]
+layout_mode = 2
+alignment = 1
+script = ExtResource("10_2qo3q")
+customized_part = 2
+
+[node name="OptionLabel" type="Label" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions/CustomizeOptionUpperArms"]
+layout_mode = 2
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = SubResource("SystemFont_24f43")
+text = "Upperarms :"
+
+[node name="SelectedLabel" type="Label" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions/CustomizeOptionUpperArms"]
+layout_mode = 2
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = SubResource("SystemFont_x6um8")
+text = "1"
+
+[node name="ButtonPrev" type="Button" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions/CustomizeOptionUpperArms"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+icon = ExtResource("2_wvk11")
+icon_alignment = 1
+
+[node name="ButtonNext" type="Button" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions/CustomizeOptionUpperArms"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+icon = ExtResource("3_4etne")
+icon_alignment = 1
+
+[node name="CustomizeOptionForeArms" type="HBoxContainer" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions"]
+layout_mode = 2
+alignment = 1
+script = ExtResource("10_2qo3q")
+customized_part = 3
+
+[node name="OptionLabel" type="Label" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions/CustomizeOptionForeArms"]
+layout_mode = 2
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = SubResource("SystemFont_24f43")
+text = "Forearms  :"
+
+[node name="SelectedLabel" type="Label" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions/CustomizeOptionForeArms"]
+layout_mode = 2
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = SubResource("SystemFont_x6um8")
+text = "1"
+
+[node name="ButtonPrev" type="Button" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions/CustomizeOptionForeArms"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+icon = ExtResource("2_wvk11")
+icon_alignment = 1
+
+[node name="ButtonNext" type="Button" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions/CustomizeOptionForeArms"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+icon = ExtResource("3_4etne")
+icon_alignment = 1
+
+[node name="CustomizeOptionTorso" type="HBoxContainer" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions"]
+layout_mode = 2
+alignment = 1
+script = ExtResource("10_2qo3q")
+customized_part = 1
+
+[node name="OptionLabel" type="Label" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions/CustomizeOptionTorso"]
+layout_mode = 2
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = SubResource("SystemFont_24f43")
+text = "Torso     :"
+
+[node name="SelectedLabel" type="Label" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions/CustomizeOptionTorso"]
+layout_mode = 2
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = SubResource("SystemFont_x6um8")
+text = "1"
+
+[node name="ButtonPrev" type="Button" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions/CustomizeOptionTorso"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+icon = ExtResource("2_wvk11")
+icon_alignment = 1
+
+[node name="ButtonNext" type="Button" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions/CustomizeOptionTorso"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+icon = ExtResource("3_4etne")
+icon_alignment = 1
+
+[node name="CustomizeOptionThighs" type="HBoxContainer" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions"]
+layout_mode = 2
+alignment = 1
+script = ExtResource("10_2qo3q")
+customized_part = 4
+
+[node name="OptionLabel" type="Label" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions/CustomizeOptionThighs"]
+layout_mode = 2
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = SubResource("SystemFont_24f43")
+text = "Thighs    :"
+
+[node name="SelectedLabel" type="Label" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions/CustomizeOptionThighs"]
+layout_mode = 2
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = SubResource("SystemFont_x6um8")
+text = "1"
+
+[node name="ButtonPrev" type="Button" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions/CustomizeOptionThighs"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+icon = ExtResource("2_wvk11")
+icon_alignment = 1
+
+[node name="ButtonNext" type="Button" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions/CustomizeOptionThighs"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+icon = ExtResource("3_4etne")
+icon_alignment = 1
+
+[node name="CustomizeOptionFeet" type="HBoxContainer" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions"]
+layout_mode = 2
+alignment = 1
+script = ExtResource("10_2qo3q")
+customized_part = 5
+
+[node name="OptionLabel" type="Label" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions/CustomizeOptionFeet"]
+layout_mode = 2
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = SubResource("SystemFont_24f43")
+text = "Legs      :"
+
+[node name="SelectedLabel" type="Label" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions/CustomizeOptionFeet"]
+layout_mode = 2
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = SubResource("SystemFont_x6um8")
+text = "1"
+
+[node name="ButtonPrev" type="Button" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions/CustomizeOptionFeet"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+icon = ExtResource("2_wvk11")
+icon_alignment = 1
+
+[node name="ButtonNext" type="Button" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions/CustomizeOptionFeet"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+icon = ExtResource("3_4etne")
+icon_alignment = 1
+
+[node name="CustomizeOptionVehicle" type="HBoxContainer" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions"]
+layout_mode = 2
+alignment = 1
+script = ExtResource("10_2qo3q")
+customized_part = 6
+
+[node name="OptionLabel" type="Label" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions/CustomizeOptionVehicle"]
+layout_mode = 2
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = SubResource("SystemFont_24f43")
+text = "Vehicle   :"
+
+[node name="SelectedLabel" type="Label" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions/CustomizeOptionVehicle"]
+layout_mode = 2
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = SubResource("SystemFont_x6um8")
+text = "1"
+
+[node name="ButtonPrev" type="Button" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions/CustomizeOptionVehicle"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+icon = ExtResource("2_wvk11")
+icon_alignment = 1
+
+[node name="ButtonNext" type="Button" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions/CustomizeOptionVehicle"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+icon = ExtResource("3_4etne")
+icon_alignment = 1
+
+[node name="CustomizeOptionWheels" type="HBoxContainer" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions"]
+layout_mode = 2
+alignment = 1
+script = ExtResource("10_2qo3q")
+customized_part = 7
+
+[node name="OptionLabel" type="Label" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions/CustomizeOptionWheels"]
+layout_mode = 2
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = SubResource("SystemFont_24f43")
+text = "Wheels    :"
+
+[node name="SelectedLabel" type="Label" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions/CustomizeOptionWheels"]
+layout_mode = 2
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = SubResource("SystemFont_x6um8")
+text = "1"
+
+[node name="ButtonPrev" type="Button" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions/CustomizeOptionWheels"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+icon = ExtResource("2_wvk11")
+icon_alignment = 1
+
+[node name="ButtonNext" type="Button" parent="CharacterCustomizerMenu/HBoxContainer/CustomizeOptions/CustomizeOptionWheels"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+icon = ExtResource("3_4etne")
+icon_alignment = 1
 
 [connection signal="text_changed" from="Buttons/NameLineEdit" to="." method="_on_name_line_edit_text_changed"]
 [connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_play_button_pressed"]

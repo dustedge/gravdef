@@ -10,7 +10,8 @@ script = ExtResource("1_rv1p5")
 start_point_ix = 3
 finish_point_ix = 68
 level_name = "Baby Steps"
-id = 10
+id = 11
+difficulty = 4
 
 [node name="Geometry" type="StaticBody2D" parent="."]
 

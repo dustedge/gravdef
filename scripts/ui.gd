@@ -41,6 +41,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if $LevelNameLabel.text != LevelManager.current_level.levelname:
 		$LevelNameLabel.text = LevelManager.current_level.levelname
+	
+	if $LevelNameLabel/LevelDifficultyLabel.text != Globals.Difficulty.keys()[LevelManager.current_level.difficulty]:
+		$LevelNameLabel/LevelDifficultyLabel.text = Globals.Difficulty.keys()[LevelManager.current_level.difficulty]
+		
+	if $LevelNameLabel/LevelDifficultyLabel.self_modulate != Globals.difficulty_colors[LevelManager.current_level.difficulty]:
+		$LevelNameLabel/LevelDifficultyLabel.self_modulate = Globals.difficulty_colors[LevelManager.current_level.difficulty]
+	
 	if not is_instance_valid(player) or\
 	not is_instance_valid(time_label):
 		return

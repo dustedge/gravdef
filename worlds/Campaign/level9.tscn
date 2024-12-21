@@ -8,12 +8,13 @@
 [node name="Level" type="Node2D"]
 script = ExtResource("1_wmmjt")
 start_point_ix = 1
-finish_point_ix = 51
+finish_point_ix = 55
 time_gold = 15.0
 time_silver = 18.0
 time_copper = 23.0
 level_name = "Death Drop"
 id = 9
+difficulty = 3
 
 [node name="Geometry" type="StaticBody2D" parent="."]
 

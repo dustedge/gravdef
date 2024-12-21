@@ -13,7 +13,8 @@ time_gold = 36.5
 time_silver = 39.0
 time_copper = 45.0
 level_name = "Mummy Hills"
-id = 11
+id = 10
+difficulty = 3
 
 [node name="Geometry" type="StaticBody2D" parent="."]
 

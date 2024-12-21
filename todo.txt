@@ -2,3 +2,67 @@
 [x] Fix level loading order
 [x] Implement Level Pack system
 [x] Ghost replay (save latest and best replays)
+
+[ ] 20 levels
+[-] Parallax Backgrounds - too distracting
+[ ] Music
+
+[ ] Remember name
+[ ] Character \ Vehicle Customization
+
+Level name ideas:
+
+Easy Rider
+Gentle Slope
+Smooth Start
+Bunny Hop
+First Flight
+Training Wheels
+Soft Landing
+Rolling Hills
+Bumpy Road
+Up and Over
+
+Rocky Path
+Steep Climb
+Airborne
+Zigzag Ascent
+Balanced Act
+Winding Road
+Cliffhanger
+Pitfall Pass
+Speed Bump
+Gravity Games
+
+Sharp Incline
+Almost Vertical
+Precision Drop
+Tightrope Ride
+Slippery Slope
+Edge of Control
+Spiral Descent
+Leap of Faith
+Crater Crossing
+Death Valley
+
+Zero Margin
+Impossible Climb
+Perfect Timing
+Needle's Eye
+Lunar Landing
+Cliff Dive
+Wall Rider
+Phantom Trail
+No Return
+Final Boss
+
+Speed Demon
+Gravity Gauntlet
+The Abyss
+Momentum Maze
+Echo Canyon
+Skybound
+Twisted Metal
+Vertical Vortex
+Breakpoint
+Ultimate Trial

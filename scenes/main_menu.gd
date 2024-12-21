@@ -62,5 +62,7 @@ func _on_pack_item_list_item_clicked(index: int, at_position: Vector2, mouse_but
 func fill_levels(levelpack : LevelManager.LevelPack):
 	level_item_list.clear()
 	for level in levelpack.levels:
-		var item_ix = level_item_list.add_item(str(level.id) + ". " + level.levelname)
+		var dif_prefix = Globals.difficulty_prefix[level.difficulty]
+		var printstr = (str(level.id) + ". " + level.levelname).rpad(22)
+		var item_ix = level_item_list.add_item(printstr + " " + dif_prefix)
 		level_item_list.set_item_metadata(item_ix, level)

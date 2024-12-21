@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://mvcrwkv8m4mi"]
+
+[ext_resource type="Script" path="res://worlds/level.gd" id="1_tri2t"]
+[ext_resource type="PackedScene" uid="uid://bklmi7oyqgwj4" path="res://entities/player.tscn" id="2_ckst0"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yp1uv"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_tri2t")
+start_point_ix = 1
+finish_point_ix = 93
+time_gold = 28.0
+time_silver = 31.0
+time_copper = 34.0
+level_name = "Bunny Hop"
+id = 12
+difficulty = 4
+
+[node name="Geometry" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Geometry"]
+polygon = PackedVector2Array(-128, 64, 128, 64, 192, 88, 240, 136, 280, 184, 336, 248, 448, 304, 528, 312, 624, 304, 696, 280, 736, 240, 760, 408, 888, 392, 992, 432, 1128, 392, 1184, 432, 1224, 280, 1344, 344, 1440, 400, 1536, 440, 1600, 440, 1696, 416, 1744, 376, 1792, 528, 1864, 480, 1952, 528, 1984, 488, 2040, 512, 2056, 384, 2160, 400, 2272, 440, 2368, 456, 2448, 464, 2512, 464, 2576, 456, 2632, 432, 2688, 624, 2752, 600, 2824, 664, 2872, 600, 2936, 712, 2968, 520, 3208, 584, 3304, 640, 3408, 680, 3520, 720, 3640, 712, 3680, 680, 3728, 624, 3784, 536, 3824, 536, 3864, 616, 3904, 680, 3936, 728, 4064, 776, 4208, 800, 4320, 792, 4408, 736, 4456, 688, 4480, 776, 4528, 816, 4568, 760, 4600, 800, 4640, 832, 4664, 840, 4688, 808, 4712, 840, 4736, 728, 5032, 720, 5136, 768, 5288, 800, 5384, 808, 5496, 808, 5640, 800, 5672, 784, 5728, 1008, 5744, 936, 5816, 1080, 5848, 808, 5928, 784, 5992, 808, 6056, 784, 6136, 856, 6184, 912, 6216, 960, 6256, 1000, 6280, 1032, 6304, 1048, 6360, 1032, 6400, 1016, 6432, 1056, 6560, 1016, 6616, 1056, 6720, 1056, 6912, 1056, 6976, 584, 7328, 480, 7672, 1080, 6968, 1848, 3784, 1752, -280, 1120, -1008, 216, -680, -560, -520, -424, -424, -416, -392, -232)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry"]
+position = Vector2(536, 5296)
+shape = SubResource("WorldBoundaryShape2D_yp1uv")
+
+[node name="Player" parent="." instance=ExtResource("2_ckst0")]

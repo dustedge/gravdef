@@ -715,10 +715,10 @@ layout_mode = 2
 text = "NEXT LEVEL"
 
 [node name="LevelNameLabel" type="Label" parent="UI"]
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 312.0
-offset_bottom = 40.0
+offset_left = 108.0
+offset_top = 9.0
+offset_right = 412.0
+offset_bottom = 41.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_constants/shadow_outline_size = 0
@@ -726,11 +726,20 @@ theme_override_font_sizes/font_size = 14
 text = "level name here"
 vertical_alignment = 1
 
+[node name="LevelDifficultyLabel" type="Label" parent="UI/LevelNameLabel"]
+layout_mode = 0
+offset_left = -97.0
+offset_top = 1.0
+offset_right = -13.0
+offset_bottom = 30.0
+theme_override_constants/outline_size = 2
+text = "STRESSFUL"
+
 [node name="ScoresContainer" type="VBoxContainer" parent="UI"]
-offset_left = 8.0
-offset_top = 40.0
-offset_right = 120.0
-offset_bottom = 224.0
+offset_left = 520.0
+offset_top = 7.0
+offset_right = 632.0
+offset_bottom = 191.0
 
 [node name="_TitleLabel" type="Label" parent="UI/ScoresContainer"]
 layout_mode = 2

@@ -18,9 +18,9 @@ class_name Player
 @onready var vehicle : RigidBody2D = $Motorcycle
 var last_played_animation := "RESET"
 
-var stiffness = 1000.0
+var stiffness = 1300.0
 var jump_stiffness = 200.0
-var damping = 3
+var damping = 4
 
 var elapsed_time = 0.0
 var is_dead : bool = false

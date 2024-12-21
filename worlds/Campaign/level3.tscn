@@ -14,6 +14,7 @@ time_silver = 15.0
 time_copper = 17.0
 level_name = "Micro Peaks"
 id = 3
+difficulty = 1
 
 [node name="Geometry" type="StaticBody2D" parent="."]
 

@@ -14,6 +14,7 @@ time_silver = 45.0
 time_copper = 53.0
 level_name = "Rolling Ravine"
 id = 7
+difficulty = 3
 
 [node name="Geometry" type="StaticBody2D" parent="."]
 

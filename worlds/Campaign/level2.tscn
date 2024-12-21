@@ -14,6 +14,7 @@ time_silver = 14.5
 time_copper = 16.0
 level_name = "Gentle Slopes"
 id = 2
+difficulty = 1
 
 [node name="Geometry" type="StaticBody2D" parent="."]
 

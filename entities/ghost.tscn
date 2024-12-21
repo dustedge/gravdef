@@ -241,6 +241,7 @@ _data = {
 [sub_resource type="SystemFont" id="SystemFont_iu1q4"]
 font_names = PackedStringArray("Monospace")
 font_weight = 750
+subpixel_positioning = 0
 
 [node name="Ghost" type="Node2D"]
 modulate = Color(0.46, 1, 0.64, 0.568627)

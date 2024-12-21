@@ -14,6 +14,7 @@ time_silver = 22.0
 time_copper = 25.0
 level_name = "First Climb"
 id = 4
+difficulty = 2
 
 [node name="Geometry" type="StaticBody2D" parent="."]
 
