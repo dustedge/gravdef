@@ -52,6 +52,11 @@ custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 text = "PLAY"
 
+[node name="CustomizeButton" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "CUSTOMIZE"
+
 [node name="OptionsButton" type="Button" parent="Buttons"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
@@ -128,6 +133,7 @@ offset_bottom = 53.0
 text = "X"
 
 [node name="CharacterCustomizerMenu" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -177,7 +183,18 @@ layout_mode = 2
 [node name="ColorRect" type="ColorRect" parent="CharacterCustomizerMenu/HBoxContainer/CharacterContainer"]
 custom_minimum_size = Vector2(190, 190)
 layout_mode = 2
-color = Color(0.1, 0.1, 0.1, 1)
+color = Color(0.79, 0.79, 0.79, 0.627451)
+
+[node name="ColorRect" type="ColorRect" parent="CharacterCustomizerMenu/HBoxContainer/CharacterContainer/ColorRect"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.79, 0.79, 0.79, 1)
 
 [node name="Character" type="Control" parent="CharacterCustomizerMenu/HBoxContainer/CharacterContainer"]
 layout_mode = 2
@@ -552,10 +569,19 @@ layout_mode = 2
 icon = ExtResource("3_4etne")
 icon_alignment = 1
 
+[node name="HideButton" type="Button" parent="CharacterCustomizerMenu"]
+offset_left = 592.0
+offset_top = 16.0
+offset_right = 632.0
+offset_bottom = 53.0
+text = "X"
+
 [connection signal="text_changed" from="Buttons/NameLineEdit" to="." method="_on_name_line_edit_text_changed"]
 [connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Buttons/CustomizeButton" to="." method="_on_customize_button_pressed"]
 [connection signal="pressed" from="Buttons/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="Buttons/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="item_clicked" from="LevelSelectorMenu/VBoxContainer/SelectorContainer/PackItemList" to="." method="_on_pack_item_list_item_clicked"]
 [connection signal="item_clicked" from="LevelSelectorMenu/VBoxContainer/SelectorContainer/LevelItemList" to="." method="_on_level_item_list_item_clicked"]
 [connection signal="pressed" from="LevelSelectorMenu/HideLevelSelectorButton" to="." method="_on_hide_level_selector_button_pressed"]
+[connection signal="pressed" from="CharacterCustomizerMenu/HideButton" to="CharacterCustomizerMenu" method="_on_hide_button_pressed"]

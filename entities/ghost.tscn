@@ -1,8 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://8vgm5q66cce6"]
+[gd_scene load_steps=14 format=3 uid="uid://8vgm5q66cce6"]
 
-[ext_resource type="Texture2D" uid="uid://10ifvy451de0" path="res://sprites/player.png" id="1_8fffx"]
 [ext_resource type="Script" path="res://entities/ghost.gd" id="1_21kqj"]
 [ext_resource type="Texture2D" uid="uid://bn1xytss55rx2" path="res://sprites/motorcycle.png" id="2_dbyqb"]
+[ext_resource type="Texture2D" uid="uid://b51f2ppi8g70r" path="res://sprites/character/heads.png" id="3_8hjtr"]
+[ext_resource type="Texture2D" uid="uid://d4g22pau2jjro" path="res://sprites/character/forearms.png" id="4_ikjig"]
+[ext_resource type="Texture2D" uid="uid://p5l6yb467p5e" path="res://sprites/character/upperarms.png" id="5_73e64"]
+[ext_resource type="Texture2D" uid="uid://dhtxe0biwaog6" path="res://sprites/character/feet.png" id="6_2maty"]
+[ext_resource type="Texture2D" uid="uid://djbs1sakshaln" path="res://sprites/character/thighs.png" id="7_etade"]
+[ext_resource type="Texture2D" uid="uid://cku4lp86p3vd7" path="res://sprites/character/torsos.png" id="8_hl3jy"]
 
 [sub_resource type="Animation" id="Animation_xv5i3"]
 length = 0.001
@@ -255,6 +260,7 @@ position = Vector2(-2, -3)
 rotation = -0.70856
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.759299, -0.65074, 0.65074, 0.759299, -2, -3)
+editor_settings/show_bone_gizmo = false
 
 [node name="head" type="Bone2D" parent="Skeleton2D/pelvis"]
 position = Vector2(26.163, -0.707107)
@@ -270,46 +276,49 @@ z_index = 1
 position = Vector2(6.62742, -0.526916)
 rotation = 1.5708
 scale = Vector2(2, 2)
-texture = ExtResource("1_8fffx")
-hframes = 6
+texture = ExtResource("3_8hjtr")
+hframes = 21
 
 [node name="upperarm" type="Bone2D" parent="Skeleton2D/pelvis"]
 position = Vector2(19.1984, 0.649514)
 rotation = 1.71379
 scale = Vector2(0.999997, 0.999997)
 rest = Transform2D(-0.142511, 0.98979, -0.98979, -0.142511, 19.1984, 0.649514)
+editor_settings/show_bone_gizmo = false
 
 [node name="forearm" type="Bone2D" parent="Skeleton2D/pelvis/upperarm"]
 position = Vector2(13, 0)
 rotation = -1.0472
+scale = Vector2(1, 1)
 rest = Transform2D(0.5, -0.866025, 0.866025, 0.5, 13, 0)
 auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = 0.0
+editor_settings/show_bone_gizmo = false
 
 [node name="sprite" type="Sprite2D" parent="Skeleton2D/pelvis/upperarm/forearm"]
-z_index = 2
-position = Vector2(4, -2.54292e-07)
-rotation = -1.5708
+z_index = 1
+position = Vector2(6.62742, -0.526916)
+rotation = 1.5708
 scale = Vector2(2, 2)
-texture = ExtResource("1_8fffx")
-hframes = 6
-frame = 3
+texture = ExtResource("4_ikjig")
+flip_v = true
+hframes = 21
 
 [node name="sprite" type="Sprite2D" parent="Skeleton2D/pelvis/upperarm"]
 z_index = 2
 position = Vector2(4, -2.54292e-07)
 rotation = 1.5708
 scale = Vector2(2, 2)
-texture = ExtResource("1_8fffx")
-hframes = 6
-frame = 2
+texture = ExtResource("5_73e64")
+hframes = 21
 
 [node name="thigh" type="Bone2D" parent="Skeleton2D/pelvis"]
 position = Vector2(1.19209e-06, 4.76837e-07)
 rotation = 1.32581
 scale = Vector2(0.999997, 0.999997)
 rest = Transform2D(0.242539, 0.970139, -0.970139, 0.242539, 1.19209e-06, 4.76837e-07)
+editor_settings/show_bone_gizmo = false
 
 [node name="leg" type="Bone2D" parent="Skeleton2D/pelvis/thigh"]
 position = Vector2(16, 2.09815e-06)
@@ -319,30 +328,28 @@ rest = Transform2D(0.384167, 0.923262, -0.923262, 0.384167, 16, 2.09815e-06)
 auto_calculate_length_and_angle = false
 length = 20.245
 bone_angle = 0.0
+editor_settings/show_bone_gizmo = false
 
 [node name="sprite" type="Sprite2D" parent="Skeleton2D/pelvis/thigh/leg"]
-position = Vector2(8, 1.04907e-06)
+position = Vector2(13.6305, -2.30182)
 rotation = -1.5708
 scale = Vector2(2, 2)
-texture = ExtResource("1_8fffx")
-hframes = 6
-frame = 5
+texture = ExtResource("6_2maty")
+hframes = 21
 
 [node name="sprite" type="Sprite2D" parent="Skeleton2D/pelvis/thigh"]
 position = Vector2(8, -0.999999)
 rotation = 1.5708
 scale = Vector2(2, 2)
-texture = ExtResource("1_8fffx")
-hframes = 6
-frame = 4
+texture = ExtResource("7_etade")
+hframes = 21
 
 [node name="sprite" type="Sprite2D" parent="Skeleton2D/pelvis"]
-position = Vector2(16, 6.99382e-07)
+position = Vector2(12.4206, -0.433624)
 rotation = 1.5708
 scale = Vector2(2, 2)
-texture = ExtResource("1_8fffx")
-hframes = 6
-frame = 1
+texture = ExtResource("8_hl3jy")
+hframes = 21
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

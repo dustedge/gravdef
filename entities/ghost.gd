@@ -7,6 +7,13 @@ class_name Ghost
 @onready var wheel_back = $VehicleRoot/WheelBackSprite
 @onready var wheel_front = $VehicleRoot/WheelFrontSprite
 
+@onready var sprite_head : Sprite2D = $Skeleton2D/pelvis/head/sprite
+@onready var sprite_torso : Sprite2D = $Skeleton2D/pelvis/sprite
+@onready var sprite_upperarm : Sprite2D = $Skeleton2D/pelvis/upperarm/sprite
+@onready var sprite_forearm : Sprite2D = $Skeleton2D/pelvis/upperarm/forearm/sprite
+@onready var sprite_thigh : Sprite2D = $Skeleton2D/pelvis/thigh/sprite
+@onready var sprite_leg : Sprite2D = $Skeleton2D/pelvis/thigh/leg/sprite
+
 var modulate_to : Color
 var last_played_anim = ""
 
@@ -33,6 +40,7 @@ func apply_frame(frame : ReplayManager.ReplayFrame):
 func start_replay(replay : ReplayManager.Replay):
 	if replay.frames.is_empty():
 		return
+	self.set_appearance(replay.appearance)
 	self.modulate = modulate_to
 	current_replay = replay
 	target_frame = replay.frames[0]
@@ -86,4 +94,13 @@ func play_replay(delta):
 	
 	last_position = global_position
 	$Label.global_position = global_position + Vector2(-50.0, -60.0) 
-	
+
+func set_appearance(appearance : CharacterCustomizer.Appearance):
+	sprite_head.frame 		= appearance.head
+	sprite_torso.frame 		= appearance.torso
+	sprite_forearm.frame 	= appearance.forearm
+	sprite_upperarm.frame 	= appearance.upperarm
+	sprite_thigh.frame 		= appearance.thigh
+	sprite_leg.frame 		= appearance.leg
+	#sprite_vehicle.frame 	= appearance.vehicle
+	#sprite_wheel.frame		= appearance.wheel

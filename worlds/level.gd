@@ -145,11 +145,17 @@ func update_flags():
 	finish_flags[1].position = finish_anchor + offset
 
 func finish():
+	if !player.is_finished:
+		SoundManager.playSFXAtPosition("res://sounds/fanfare-trumpets.mp3",
+	player.global_position)
 	player.finish_level()
+	
 	pass
 
 func start():
 	if is_started: return
+	SoundManager.playSFXAtPosition("res://sounds/retrosfxpack/General Sounds/Simple Bleeps/sfx_sounds_Blip2.wav",
+	player.global_position)
 	## add something like a toggle to disable recording of replays
 	ReplayManager.start_recording(player)
 	

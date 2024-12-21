@@ -7,8 +7,9 @@
 [-] Parallax Backgrounds - too distracting
 [ ] Music
 
-[ ] Remember name
-[ ] Character \ Vehicle Customization
+[x] Remember name
+[x] Character 
+[ ] Vehicle Customization
 
 Level name ideas:
 

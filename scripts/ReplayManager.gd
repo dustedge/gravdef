@@ -51,6 +51,7 @@ class Replay:
 	var total_time		: float		= 0.0
 	var player_name		: String	= ""
 	var frames: Array[ReplayFrame] 	= []
+	var appearance: CharacterCustomizer.Appearance = CharacterCustomizer.Appearance.new()
 
 var capture_interval : float = 0.05
 var total_elapsed : float = 0.0
@@ -154,6 +155,8 @@ func stop_recording(ply : Player, is_forced = false):
 	newfile.set_value("Replay", "total_time", ply.elapsed_time)
 	newfile.set_value("Replay", "player_name", current_replay.player_name)
 	newfile.set_value("Replay", "frames", serialize_frames(current_replay.frames))
+	newfile.set_value("Replay", "appearance",  CharacterCustomizer.serialize_appearance(Globals.current_appearance))
+	
 	print("ReplayManager: Saved replay to ", filename_last)
 	newfile.save("user://replays/" + filename_last)
 	if beat_best:
@@ -187,6 +190,7 @@ func load_level_replays(world : Level, level : LevelManager.GameLevel = LevelMan
 		new_replay.total_time = last_replay.get_value("Replay", "total_time")
 		new_replay.player_name = last_replay.get_value("Replay", "player_name")
 		new_replay.frames = deserialize_frames(last_replay.get_value("Replay", "frames"))
+		new_replay.appearance = CharacterCustomizer.deserialize_appearance(last_replay.get_value("Replay", "appearance"))
 		spawn_ghost(new_replay, world, Color.YELLOW)
 	
 	if best_loaded and spawn_best:
@@ -194,6 +198,7 @@ func load_level_replays(world : Level, level : LevelManager.GameLevel = LevelMan
 		new_replay.total_time = best_replay.get_value("Replay", "total_time")
 		new_replay.player_name = best_replay.get_value("Replay", "player_name")
 		new_replay.frames = deserialize_frames(best_replay.get_value("Replay", "frames"))
+		new_replay.appearance =  CharacterCustomizer.deserialize_appearance(best_replay.get_value("Replay", "appearance"))
 		spawn_ghost(new_replay, world, Color.GREEN)
 
 

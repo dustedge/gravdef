@@ -16,18 +16,18 @@ func _on_pressed_button_next():
 	if curvalue < max_value:
 		curvalue += 1
 		emit_signal("changed", self)
-		selected_label.text = str(curvalue)
+		selected_label.text = str(curvalue).lpad(2)
 
 func _on_pressed_button_previous():
 	if curvalue > 0:
 		curvalue -= 1
 		emit_signal("changed", self)
-		selected_label.text = str(curvalue)
+		selected_label.text = str(curvalue).lpad(2)
 
 func set_val(value : int):
 	curvalue = value
 	emit_signal("changed", self)
-	selected_label.text = str(curvalue)
+	selected_label.text = str(curvalue).lpad(2)
 
 func set_max_val(value : int):
 	max_value = value

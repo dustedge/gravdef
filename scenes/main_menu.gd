@@ -5,6 +5,7 @@ class_name MainMenu
 @onready var levelpack_item_list : ItemList = $LevelSelectorMenu/VBoxContainer/SelectorContainer/PackItemList
 func _ready() -> void:
 	# fetch levelpacks and populate packlist
+	$Buttons/NameLineEdit.text = Globals.player_name
 	refresh_level_packs() 
 	
 	
@@ -29,6 +30,7 @@ func trim_number_prefix(string : String):
 
 func _on_play_button_pressed() -> void:
 	$LevelSelectorMenu.show()
+	Globals.save_player_config()
 	pass # Replace with function body.
 
 
@@ -50,6 +52,7 @@ func _on_name_line_edit_text_changed(new_text: String) -> void:
 		Globals.player_name = new_text.to_upper()
 	else:
 		Globals.player_name = "NONAME"
+	Globals.save_player_config()
 
 
 func _on_pack_item_list_item_clicked(index: int, at_position: Vector2, mouse_button_index: int) -> void:
@@ -66,3 +69,7 @@ func fill_levels(levelpack : LevelManager.LevelPack):
 		var printstr = (str(level.id) + ". " + level.levelname).rpad(22)
 		var item_ix = level_item_list.add_item(printstr + " " + dif_prefix)
 		level_item_list.set_item_metadata(item_ix, level)
+
+
+func _on_customize_button_pressed() -> void:
+	$CharacterCustomizerMenu.show()

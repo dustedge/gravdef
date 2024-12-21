@@ -29,6 +29,14 @@ var player_torque = 40000.0
 var is_finished = false
 var is_started = false
 
+
+@onready var sprite_head : Sprite2D = $Skeleton2D/pelvis/head/sprite
+@onready var sprite_torso : Sprite2D = $Skeleton2D/pelvis/sprite
+@onready var sprite_upperarm : Sprite2D = $Skeleton2D/pelvis/upperarm/sprite
+@onready var sprite_forearm : Sprite2D = $Skeleton2D/pelvis/upperarm/forearm/sprite
+@onready var sprite_thigh : Sprite2D = $Skeleton2D/pelvis/thigh/sprite
+@onready var sprite_leg : Sprite2D = $Skeleton2D/pelvis/thigh/leg/sprite
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	front_spring.stiffness = stiffness
@@ -36,6 +44,8 @@ func _ready() -> void:
 	
 	front_spring.damping = damping
 	back_spring.damping = damping
+	
+	self.set_appearance(Globals.current_appearance)
 	
 	engine_sfx.play()
 	pass # Replace with function body.
@@ -196,3 +206,14 @@ func _on_head_area_body_entered(body: Node2D) -> void:
 	# hit head
 	if is_instance_valid(body) and !is_dead:
 		die()
+		
+		
+func set_appearance(appearance : CharacterCustomizer.Appearance):
+	sprite_head.frame 		= appearance.head
+	sprite_torso.frame 		= appearance.torso
+	sprite_forearm.frame 	= appearance.forearm
+	sprite_upperarm.frame 	= appearance.upperarm
+	sprite_thigh.frame 		= appearance.thigh
+	sprite_leg.frame 		= appearance.leg
+	#sprite_vehicle.frame 	= appearance.vehicle
+	#sprite_wheel.frame		= appearance.wheel
