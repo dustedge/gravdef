@@ -1,7 +1,7 @@
 ## AGAB or a modernized clone of Gravity Defied
 A practice project that is inspired by Gravity Defied and produced in a Godot Engine
 
-### Current state: Playable - [X]
+### Current state: Playable
 
 ### Controls
 - Arrow keys 	- Movement
@@ -9,13 +9,13 @@ A practice project that is inspired by Gravity Defied and produced in a Godot En
 - C 			- End race
 
 ### Features
-- Basic functionality - [X]
-- Basic spritework - [X]
-- Level builder tools - [X]
-- Pseudo 3D levels - [X]
-- First level pack - [X]
-- Replay ghosts - [X]
-- Character customizer - [X] 
-- Pause menu - [ ]
-- Settings menu - [ ]
-- Graphical overhaul - [ ]
+- [X] Basic functionality
+- [X] Basic spritework 
+- [X] Level builder tools
+- [X] Pseudo 3D levels
+- [X] First level pack
+- [X] Replay ghosts
+- [X] Character customizer 
+- [ ] Pause menu
+- [ ] Settings menu
+- [ ] Graphical overhaul
