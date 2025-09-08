@@ -1,8 +1,6 @@
 ## Motopack or a modernized clone of Gravity Defied
 A practice project that is inspired by Gravity Defied and produced in a Godot Engine
 
-![motoclip-flip](https://github.com/user-attachments/assets/8832b32e-c924-414c-b553-4a5dbef01aad)
-
 ### Current state: Playable
 
 ### Controls
@@ -11,6 +9,8 @@ A practice project that is inspired by Gravity Defied and produced in a Godot En
 - C 			- End race
 
 ### Previews
+
+![motoclip-flip](https://github.com/user-attachments/assets/8832b32e-c924-414c-b553-4a5dbef01aad)
 
 ![motoclip-custom](https://github.com/user-attachments/assets/c97d96c1-a787-41ab-a478-3cf1087d4ab8)
 
