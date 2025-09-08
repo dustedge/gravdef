@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dokn1dhnc8yg0"]
 
-[ext_resource type="Script" path="res://worlds/level.gd" id="1_74m68"]
+[ext_resource type="Script" uid="uid://3fecifxhwup3" path="res://worlds/level.gd" id="1_74m68"]
 [ext_resource type="PackedScene" uid="uid://bklmi7oyqgwj4" path="res://entities/player.tscn" id="2_1c140"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4abch"]

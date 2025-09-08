@@ -1,11 +1,11 @@
 [gd_scene load_steps=34 format=3 uid="uid://bklmi7oyqgwj4"]
 
-[ext_resource type="Script" path="res://entities/player.gd" id="1_v0w06"]
+[ext_resource type="Script" uid="uid://cagwgg5iam1q8" path="res://entities/player.gd" id="1_v0w06"]
 [ext_resource type="Texture2D" uid="uid://bn1xytss55rx2" path="res://sprites/motorcycle.png" id="2_llg6f"]
-[ext_resource type="Script" path="res://entities/motorcycle.gd" id="2_xsr6o"]
+[ext_resource type="Script" uid="uid://cawqb7o4iureo" path="res://entities/motorcycle.gd" id="2_xsr6o"]
 [ext_resource type="AudioStream" uid="uid://b1dres5xvjy1m" path="res://sounds/engine.ogg" id="3_d4bxb"]
-[ext_resource type="Script" path="res://scripts/debug_ui.gd" id="3_jukl0"]
-[ext_resource type="Script" path="res://scripts/ui.gd" id="5_ppc57"]
+[ext_resource type="Script" uid="uid://mtno08foieh5" path="res://scripts/debug_ui.gd" id="3_jukl0"]
+[ext_resource type="Script" uid="uid://7ca8txrjsihf" path="res://scripts/ui.gd" id="5_ppc57"]
 [ext_resource type="Texture2D" uid="uid://b51f2ppi8g70r" path="res://sprites/character/heads.png" id="5_qp45x"]
 [ext_resource type="Texture2D" uid="uid://d4k1m3kldmvt" path="res://sprites/medals.png" id="6_7kgbx"]
 [ext_resource type="Texture2D" uid="uid://d4g22pau2jjro" path="res://sprites/character/forearms.png" id="6_v1exy"]
@@ -287,9 +287,9 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3jpqp"]
 _data = {
-"RESET": SubResource("Animation_xv5i3"),
-"left": SubResource("Animation_77fuo"),
-"right": SubResource("Animation_cjrr7")
+&"RESET": SubResource("Animation_xv5i3"),
+&"left": SubResource("Animation_77fuo"),
+&"right": SubResource("Animation_cjrr7")
 }
 
 [sub_resource type="SystemFont" id="SystemFont_67442"]
@@ -641,7 +641,7 @@ position_smoothing_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_3jpqp")
+&"": SubResource("AnimationLibrary_3jpqp")
 }
 autoplay = "RESET"
 

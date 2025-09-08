@@ -51,7 +51,7 @@ func _on_name_line_edit_text_changed(new_text: String) -> void:
 	if not new_text.is_empty():
 		Globals.player_name = new_text.to_upper()
 	else:
-		Globals.player_name = "NONAME"
+		Globals.player_name = "PLAYER"
 	Globals.save_player_config()
 
 

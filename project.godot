@@ -12,11 +12,11 @@ config_version=5
 
 config/name="gravitydefiled"
 run/main_scene="res://scenes/main_menu.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-boot_splash/image="res://sprites/splash.png"
 boot_splash/fullsize=false
 boot_splash/use_filter=false
+boot_splash/image="res://sprites/splash.png"
 config/icon="res://sprites/pack_main.png"
 boot_splash/minimum_display_time=1500
 

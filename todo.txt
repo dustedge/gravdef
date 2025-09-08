@@ -8,8 +8,10 @@
 [ ] Music
 
 [x] Remember name
-[x] Character 
+[x] Character
 [ ] Vehicle Customization
+[ ] Settings menu
+[ ] Code comments
 
 Level name ideas:
 

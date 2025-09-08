@@ -11,7 +11,7 @@ var sound_pitch_variation = 0.1
 var current_bpm = 0
 var main_bgm_player : AudioStreamPlayer = AudioStreamPlayer.new()
 var beat_delay = 0.1
-var default_db = -24.0
+var default_db = -48.0
 
 var volume_sfx : float = default_db
 var volume_bgm : float = default_db
@@ -20,12 +20,14 @@ var volume_checker : Timer
 signal music_beat_occured
 
 var music = {
+	"blacklight" : preload("res://sounds/music/blacklight.ogg")
 }
 
-var music_queue_world : Array = [
+var music_queue : Array = [
+	music["blacklight"]
 ]
 
-var current_music_queue : Array = music_queue_world
+var current_music_queue : Array = music_queue
 
 var loaded_sounds : Dictionary = {}
 
@@ -59,6 +61,7 @@ func _ready() -> void:
 		self.add_child(newply)
 		newply.connect("finished", _on_audio_stream_finished.bind(newply))
 	
+	start_world_playlist()
 	
 
 func playSFXAtPosition(path : String, where : Vector2, volume_change : float = 0.0):
@@ -107,7 +110,7 @@ func _on_audio_stream_finished(player):
 	pass
 
 func start_world_playlist():
-	current_music_queue = music_queue_world
+	current_music_queue = music_queue
 	var track : AudioStream = current_music_queue.pop_front()
 	if main_bgm_player.playing:
 		main_bgm_player.stop()
